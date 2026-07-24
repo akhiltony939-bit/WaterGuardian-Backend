@@ -1,0 +1,993 @@
+/* ==========================================
+   WaterGuardian-X Professional Admin Portal
+   Part 1 - Layout & Sidebar
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
+}
+
+:root{
+
+    --primary:#0066cc;
+    --secondary:#0099e6;
+    --dark:#003366;
+    --success:#28a745;
+    --warning:#ff9800;
+    --danger:#dc3545;
+    --white:#ffffff;
+    --light:#f4f9ff;
+    --shadow:0 10px 30px rgba(0,0,0,.15);
+
+}
+
+body{
+
+    background:linear-gradient(135deg,#eaf6ff,#d7f0ff,#ffffff);
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+}
+
+/* Animated Background */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle at 20% 20%,rgba(0,153,255,.08),transparent 30%),
+
+    radial-gradient(circle at 80% 40%,rgba(0,180,216,.08),transparent 25%),
+
+    radial-gradient(circle at 60% 80%,rgba(0,119,182,.08),transparent 25%);
+
+    animation:floatBackground 12s ease-in-out infinite;
+
+    z-index:-2;
+
+}
+
+@keyframes floatBackground{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-20px);
+
+    }
+
+}
+
+/* Layout */
+
+.admin-layout{
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+/* Sidebar */
+
+.sidebar{
+
+    width:280px;
+
+    background:linear-gradient(180deg,#003366,#0066cc);
+
+    color:white;
+
+    padding:30px 20px;
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    bottom:0;
+
+    overflow-y:auto;
+
+    box-shadow:5px 0 20px rgba(0,0,0,.2);
+
+}
+
+.sidebar h2{
+
+    text-align:center;
+
+    font-size:28px;
+
+    margin-bottom:10px;
+
+}
+
+.admin-role{
+
+    text-align:center;
+
+    color:#cceeff;
+
+    margin-bottom:35px;
+
+    font-size:15px;
+
+    letter-spacing:1px;
+
+}
+
+.sidebar ul{
+
+    list-style:none;
+
+}
+
+.sidebar li{
+
+    padding:15px 18px;
+
+    margin-bottom:12px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.sidebar li:hover{
+
+    background:rgba(255,255,255,.18);
+
+    transform:translateX(8px);
+
+}
+
+/* Main Content */
+
+.content{
+
+    margin-left:280px;
+
+    flex:1;
+
+    padding:35px;
+
+}
+/* ==========================================
+   Part 2 - Topbar, Cards & Search
+========================================== */
+
+/* Top Bar */
+
+.topbar{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+    flex-wrap:wrap;
+    gap:20px;
+
+}
+
+.topbar h1{
+
+    color:var(--dark);
+    font-size:34px;
+    font-weight:700;
+
+}
+
+.topbar p{
+
+    color:#666;
+    margin-top:8px;
+    font-size:16px;
+
+}
+
+.admin-date{
+
+    background:white;
+    padding:15px 20px;
+    border-radius:15px;
+    box-shadow:var(--shadow);
+    font-weight:600;
+    color:var(--primary);
+
+}
+
+/* Statistics Cards */
+
+.cards{
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    margin-bottom:35px;
+
+}
+
+.card{
+
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    transition:.35s;
+    position:relative;
+    overflow:hidden;
+
+}
+
+.card::before{
+
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:6px;
+    background:linear-gradient(90deg,var(--primary),var(--secondary));
+
+}
+
+.card:nth-child(2)::before{
+
+    background:linear-gradient(90deg,#ff9800,#ffc107);
+
+}
+
+.card:nth-child(3)::before{
+
+    background:linear-gradient(90deg,#28a745,#00c853);
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+    box-shadow:0 18px 35px rgba(0,0,0,.18);
+
+}
+
+.card h2{
+
+    font-size:48px;
+    color:var(--primary);
+    margin-bottom:12px;
+
+}
+
+.card p{
+
+    color:#666;
+    font-size:17px;
+    font-weight:600;
+
+}
+
+/* Search Toolbar */
+
+.toolbar{
+
+    margin:30px 0;
+
+}
+
+.toolbar input{
+
+    width:100%;
+    padding:16px 20px;
+    border:2px solid #ddeeff;
+    border-radius:15px;
+    font-size:16px;
+    outline:none;
+    transition:.3s;
+    background:white;
+
+}
+
+.toolbar input:focus{
+
+    border-color:var(--primary);
+    box-shadow:0 0 15px rgba(0,102,204,.2);
+
+}
+
+.toolbar input::placeholder{
+
+    color:#888;
+
+}
+/* ==========================================
+   Part 3 - Complaint Table & Action Buttons
+========================================== */
+
+/* Complaint Section */
+
+#complaints{
+
+    background:#ffffff;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    overflow-x:auto;
+
+}
+
+#complaints h2{
+
+    color:var(--dark);
+    margin-bottom:20px;
+    font-size:28px;
+
+}
+
+/* Table */
+
+table{
+
+    width:100%;
+    border-collapse:collapse;
+    min-width:750px;
+
+}
+
+thead{
+
+    background:linear-gradient(90deg,var(--dark),var(--primary));
+
+}
+
+thead th{
+
+    color:white;
+    padding:16px;
+    text-align:center;
+    font-size:16px;
+    font-weight:600;
+
+}
+
+tbody td{
+
+    padding:16px;
+    text-align:center;
+    border-bottom:1px solid #e6eef7;
+    color:#444;
+
+}
+
+tbody tr{
+
+    transition:.25s;
+
+}
+
+tbody tr:hover{
+
+    background:#f5fbff;
+
+}
+
+/* Status Badges */
+
+.status{
+
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:700;
+    color:#fff;
+
+}
+
+.status.pending{
+
+    background:#ff9800;
+
+}
+
+.status.resolved{
+
+    background:#28a745;
+
+}
+
+/* Action Buttons */
+
+.action-btn{
+
+    border:none;
+    padding:9px 16px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+    margin:2px;
+
+}
+
+.resolve-btn{
+
+    background:#28a745;
+    color:#fff;
+
+}
+
+.resolve-btn:hover{
+
+    background:#218838;
+    transform:translateY(-2px);
+
+}
+
+.delete-btn{
+
+    background:#dc3545;
+    color:#fff;
+
+}
+
+.delete-btn:hover{
+
+    background:#c82333;
+    transform:translateY(-2px);
+
+}
+
+/* Empty State */
+
+.no-data{
+
+    text-align:center;
+    padding:40px;
+    color:#777;
+    font-size:18px;
+    font-style:italic;
+
+}
+/* ==========================================
+   Part 4 - Animations & Professional Effects
+========================================== */
+
+/* Card Animation */
+
+.card,
+#complaints{
+
+    animation:fadeUp .7s ease both;
+
+}
+
+.card:nth-child(2){
+
+    animation-delay:.15s;
+
+}
+
+.card:nth-child(3){
+
+    animation-delay:.3s;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Sidebar Hover Glow */
+
+.sidebar li{
+
+    position:relative;
+    overflow:hidden;
+
+}
+
+.sidebar li::before{
+
+    content:"";
+
+    position:absolute;
+    left:-100%;
+    top:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(255,255,255,.15);
+
+    transition:.4s;
+
+}
+
+.sidebar li:hover::before{
+
+    left:100%;
+
+}
+
+/* Card Number */
+
+.card h2{
+
+    transition:.3s;
+
+}
+
+.card:hover h2{
+
+    transform:scale(1.1);
+
+}
+
+/* Table Row Animation */
+
+tbody tr{
+
+    animation:tableFade .5s ease;
+
+}
+
+@keyframes tableFade{
+
+    from{
+
+        opacity:0;
+        transform:translateX(-20px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateX(0);
+
+    }
+
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+
+    width:10px;
+    height:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#e8f5ff;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#0077cc;
+    border-radius:10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#005fa3;
+
+}
+
+/* Focus Styles */
+
+input:focus,
+button:focus{
+
+    outline:none;
+    box-shadow:0 0 0 3px rgba(0,119,204,.2);
+
+}
+
+/* Button Transition */
+
+button{
+
+    transition:.3s ease;
+
+}
+/* ==========================================
+   Part 5 - Responsive Design & Final Polish
+========================================== */
+
+/* Large Tablets */
+
+@media (max-width:1200px){
+
+    .cards{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+/* Tablets */
+
+@media (max-width:992px){
+
+    .sidebar{
+
+        width:230px;
+
+    }
+
+    .content{
+
+        margin-left:230px;
+        padding:25px;
+
+    }
+
+    .topbar{
+
+        flex-direction:column;
+        align-items:flex-start;
+
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width:768px){
+
+    .admin-layout{
+
+        flex-direction:column;
+
+    }
+
+    .sidebar{
+
+        position:relative;
+        width:100%;
+        height:auto;
+        padding:20px;
+
+    }
+
+    .sidebar h2{
+
+        text-align:center;
+
+    }
+
+    .sidebar ul{
+
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:10px;
+        margin-top:20px;
+
+    }
+
+    .sidebar li{
+
+        margin:0;
+        min-width:140px;
+        text-align:center;
+
+    }
+
+    .content{
+
+        margin-left:0;
+        padding:20px;
+
+    }
+
+    .cards{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .card{
+
+        padding:25px;
+
+    }
+
+    .toolbar input{
+
+        font-size:15px;
+
+    }
+
+    table{
+
+        min-width:650px;
+
+    }
+
+}
+
+/* Small Phones */
+
+@media (max-width:480px){
+
+    .topbar h1{
+
+        font-size:26px;
+
+    }
+
+    .topbar p{
+
+        font-size:14px;
+
+    }
+
+    .card h2{
+
+        font-size:38px;
+
+    }
+
+    .card p{
+
+        font-size:15px;
+
+    }
+
+    .admin-date{
+
+        width:100%;
+        text-align:center;
+
+    }
+
+    #complaints{
+
+        padding:20px;
+
+    }
+
+}
+
+/* Print */
+
+@media print{
+
+    .sidebar,
+    .toolbar{
+
+        display:none;
+
+    }
+
+    .content{
+
+        margin:0;
+        padding:0;
+
+    }
+
+    body{
+
+        background:#fff;
+
+    }
+
+    .card,
+    #complaints{
+
+        box-shadow:none;
+        border:1px solid #ccc;
+
+    }
+
+}
+/* ==========================================
+   Analytics Charts
+========================================== */
+
+.analytics{
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+    margin-bottom:35px;
+
+}
+
+
+.analytics-card{
+
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    animation:fadeUp .7s ease both;
+
+}
+
+
+.analytics-card h2{
+
+    color:var(--dark);
+    margin-bottom:20px;
+    font-size:22px;
+
+}
+
+
+.analytics-card canvas{
+
+    max-height:300px;
+
+}
+
+
+
+/* ==========================================
+   Excel Export Button
+========================================== */
+
+
+.toolbar{
+
+    display:flex;
+    gap:20px;
+    align-items:center;
+
+}
+
+
+.toolbar input{
+
+    flex:1;
+
+}
+
+
+#exportExcel{
+
+    padding:16px 25px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:linear-gradient(
+        135deg,
+        #28a745,
+        #20c997
+    );
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 20px rgba(40,167,69,.3);
+
+}
+
+
+#exportExcel:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(40,167,69,.4);
+
+}
+
+
+
+/* ==========================================
+   Mobile Analytics
+========================================== */
+
+
+@media(max-width:900px){
+
+    .analytics{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .toolbar{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+
+    #exportExcel{
+
+        width:100%;
+
+    }
+
+}
+/* Analytics Chart */
+
+
+.chart-section{
+
+background:white;
+
+padding:30px;
+
+margin-bottom:30px;
+
+border-radius:20px;
+
+box-shadow:var(--shadow);
+
+}
+
+
+
+.chart-section h2{
+
+color:var(--dark);
+
+margin-bottom:20px;
+
+}
+
+
+
+#complaintChart{
+
+max-height:350px;
+
+}
