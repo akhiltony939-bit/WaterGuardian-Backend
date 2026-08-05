@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>
+WaterGuardian-X | Citizen Dashboard
+</title>
+
+
+<link rel="icon" href="images/logo.png">
+
+
+<link rel="stylesheet" href="css/theme.css">
+
+<link rel="stylesheet" href="css/loading.css">
+
+<link rel="stylesheet" href="css/dashboard.css">
+
+
+</head>
+
+
+
+<body>
+
+
+
+<!-- Loader -->
+
+<div id="loader">
+
+<div class="loader-content">
+
+<div class="water-drop">
+💧
+</div>
+
+<h1>
+WaterGuardian-X
+</h1>
+
+<p>
+Citizen Dashboard
+</p>
+
+</div>
+
+</div>
+
+
+
+
+
+
+<div class="dashboard">
+
+
+
+<!-- Header -->
+
+
+<header>
+
+
+<div class="logo">
+
+<img src="images/logo.png">
+
+<span>
+WaterGuardian-X
+</span>
+
+</div>
+
+
+
+<button onclick="logout()">
+
+🚪 Logout
+
+</button>
+
+
+</header>
+
+
+
+
+
+
+
+
+
+<!-- Welcome -->
+
+
+<section class="welcome">
+
+
+<h1>
+Welcome Citizen 👋
+</h1>
+
+
+<p>
+Manage your water complaints and track solutions easily.
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- Statistics -->
+
+
+<section class="stats">
+
+
+
+<div class="stat-card">
+
+
+<h2 id="totalComplaint">
+0
+</h2>
+
+
+<p>
+Total Complaints
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="stat-card">
+
+
+<h2 id="pendingComplaint">
+0
+</h2>
+
+
+<p>
+Pending
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="stat-card">
+
+
+<h2 id="resolvedComplaint">
+0
+</h2>
+
+
+<p>
+Resolved
+</p>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- Quick Actions -->
+
+
+<section class="actions">
+
+
+<h2>
+Quick Actions
+</h2>
+
+
+
+
+<div class="action-grid">
+
+
+
+<a href="complaint.html">
+
+🚰
+
+<h3>
+Register Complaint
+</h3>
+
+</a>
+
+
+
+
+
+<a href="map.html">
+
+🗺️
+
+<h3>
+Water Map
+</h3>
+
+</a>
+
+
+
+
+
+
+<a href="ai.html">
+
+🤖
+
+<h3>
+Aqua AI
+</h3>
+
+</a>
+
+
+
+
+
+
+
+<a href="receipt.html">
+
+📄
+
+<h3>
+Receipt
+</h3>
+
+</a>
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- Recent Complaints -->
+
+
+<section class="recent">
+
+
+<h2>
+Recent Complaints
+</h2>
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+
+<th>Issue</th>
+
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+
+
+<tbody id="recentTable">
+
+
+</tbody>
+
+
+
+</table>
+
+
+
+</section>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<script src="js/dashboard.js"></script>
+
+<script src="js/theme.js"></script>
+
+<script src="js/loading.js"></script>
+
+
+<script>
+
+
+function logout(){
+
+localStorage.removeItem("waterUser");
+
+window.location.href="index.html";
+
+}
+
+
+</script>
+
+
+
+</body>
+
+
+</html>

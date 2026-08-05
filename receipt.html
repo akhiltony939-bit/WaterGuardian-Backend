@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WaterGuardian-X | Digital Receipt</title>
+
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/loading.css">
+<link rel="stylesheet" href="css/receipt.css">
+
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+
+<body>
+
+<!-- Loader -->
+
+<div id="loader">
+
+    <div class="loader-content">
+
+        <div class="water-drop">💧</div>
+
+        <h1>WaterGuardian-X</h1>
+
+        <p>Digital Complaint Receipt</p>
+
+    </div>
+
+</div>
+
+<div class="receipt-container">
+
+    <div class="receipt-card" id="receiptCard">
+
+        <div class="header">
+
+            <h1>💧 WaterGuardian-X</h1>
+
+            <h3>Government Smart Water Management Portal</h3>
+
+        </div>
+
+        <hr>
+
+        <h2>Complaint Receipt</h2>
+
+        <div class="receipt-details">
+
+            <p><strong>Complaint ID:</strong> <span id="complaintId"></span></p>
+
+            <p><strong>Citizen Name:</strong> <span id="citizenName"></span></p>
+
+            <p><strong>Category:</strong> <span id="category"></span></p>
+
+            <p><strong>Location:</strong> <span id="location"></span></p>
+
+            <p><strong>Description:</strong> <span id="description"></span></p>
+
+            <p><strong>Date:</strong> <span id="date"></span></p>
+
+            <p>
+
+                <strong>Status:</strong>
+
+                <span class="status" id="status">
+
+                    Pending
+
+                </span>
+
+            </p>
+
+        </div>
+
+        <div class="buttons">
+
+            <button onclick="printReceipt()">
+
+                🖨 Print
+
+            </button>
+
+            <button onclick="downloadPDF()">
+
+                📄 Download PDF
+
+            </button>
+
+            <a href="dashboard.html">
+
+                ⬅ Dashboard
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/receipt.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/loading.js"></script>
+
+</body>
+
+</html>

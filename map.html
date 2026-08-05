@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WaterGuardian-X | Smart Water Map</title>
+
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/loading.css">
+<link rel="stylesheet" href="css/map.css">
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+</head>
+
+<body>
+
+<!-- Loader -->
+
+<div id="loader">
+
+    <div class="loader-content">
+
+        <div class="water-drop">💧</div>
+
+        <h1>WaterGuardian-X</h1>
+
+        <p>Smart Water Crisis Monitoring</p>
+
+    </div>
+
+</div>
+
+<!-- Header -->
+
+<header class="top-header">
+
+    <div class="logo">
+
+        💧 WaterGuardian-X
+
+    </div>
+
+    <nav>
+
+        <a href="dashboard.html">Dashboard</a>
+
+        <a href="complaint.html">New Complaint</a>
+
+        <a href="admin.html">Admin</a>
+
+    </nav>
+
+</header>
+
+<!-- Main -->
+
+<section class="map-container">
+
+    <!-- Left Panel -->
+
+    <div class="info-panel">
+
+        <h2>🗺️ Smart Water Map</h2>
+
+        <p>
+
+            View all registered complaints on the interactive map.
+
+        </p>
+
+        <button id="locationBtn">
+
+            📍 My Location
+
+        </button>
+
+        <button id="refreshBtn">
+
+            🔄 Refresh Complaints
+
+        </button>
+
+        <div class="stats">
+
+            <div>
+
+                <h3 id="mapTotal">0</h3>
+
+                <span>Total</span>
+
+            </div>
+
+            <div>
+
+                <h3 id="mapPending">0</h3>
+
+                <span>Pending</span>
+
+            </div>
+
+            <div>
+
+                <h3 id="mapResolved">0</h3>
+
+                <span>Resolved</span>
+
+            </div>
+
+        </div>
+
+        <a class="back-btn" href="dashboard.html">
+
+            ⬅ Back to Dashboard
+
+        </a>
+
+    </div>
+
+    <!-- Map -->
+
+    <div class="map-card">
+
+        <div id="map"></div>
+
+    </div>
+
+</section>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script src="js/map.js"></script>
+
+<script src="js/theme.js"></script>
+
+<script src="js/loading.js"></script>
+
+</body>
+
+</html>

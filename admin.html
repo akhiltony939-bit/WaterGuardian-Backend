@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>
+WaterGuardian-X | Admin Portal
+</title>
+
+
+<link rel="icon" href="images/logo.png">
+
+
+<link rel="stylesheet" href="css/theme.css">
+
+<link rel="stylesheet" href="css/loading.css">
+
+<link rel="stylesheet" href="css/admin.css">
+
+
+</head>
+
+
+
+<body>
+
+
+<!-- Loading Screen -->
+
+<div id="loader">
+
+
+<div class="loader-content">
+
+
+<div class="water-drop">
+💧
+</div>
+
+
+<h1>
+WaterGuardian-X
+</h1>
+
+
+<p>
+Government Administration Portal
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="admin-layout">
+
+
+
+
+
+<!-- Sidebar -->
+
+
+<aside class="sidebar">
+
+
+<h2>
+💧 WaterGuardian-X
+</h2>
+
+
+<p class="admin-role">
+Administrator
+</p>
+
+
+
+
+
+<ul>
+
+
+<li onclick="openPage('admin.html')">
+
+🏠 Dashboard
+
+</li>
+
+
+
+<li onclick="document.getElementById('complaints').scrollIntoView({behavior:'smooth'})">
+
+📋 Complaints
+
+</li>
+
+
+
+
+<li onclick="openPage('map.html')">
+
+🗺️ Water Map
+
+</li>
+
+
+
+
+
+<li onclick="openPage('ai.html')">
+
+🤖 Aqua AI
+
+</li>
+
+
+
+
+
+<li onclick="openPage('dashboard.html')">
+
+👤 Citizen Portal
+
+</li>
+
+
+
+
+
+<li onclick="logout()">
+
+🚪 Logout
+
+</li>
+
+
+
+</ul>
+
+
+
+</aside>
+
+
+
+
+
+
+
+
+
+
+<!-- Main Content -->
+
+
+<main class="content">
+
+
+
+
+
+<!-- Top Bar -->
+
+
+<div class="topbar">
+
+
+<div>
+
+
+<h1>
+Admin Dashboard
+</h1>
+
+
+<p>
+Monitor and manage water complaints efficiently.
+</p>
+
+
+</div>
+
+
+
+
+<div class="admin-date" id="currentDate">
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Statistics Cards -->
+
+
+<div class="cards">
+
+
+
+<div class="card">
+
+
+<h2 id="total">
+0
+</h2>
+
+
+<p>
+Total Complaints
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<h2 id="pending">
+0
+</h2>
+
+
+<p>
+Pending
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<h2 id="resolved">
+0
+</h2>
+
+
+<p>
+Resolved
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Export Toolbar -->
+
+
+<div class="toolbar">
+
+
+
+<input
+
+type="text"
+
+id="searchComplaint"
+
+placeholder="🔍 Search by ID, Name or Issue">
+
+
+
+
+
+
+<div class="export-buttons">
+
+
+
+<button onclick="exportPDF()">
+
+📄 Export PDF
+
+</button>
+
+
+
+
+
+<button onclick="exportExcel()">
+
+📊 Export Excel
+
+</button>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Chart Section -->
+
+
+<section class="chart-section">
+
+
+<h2>
+📊 Complaint Analytics
+</h2>
+
+
+<canvas id="complaintChart"></canvas>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- Complaint Table -->
+
+
+<section id="complaints">
+
+
+<h2>
+Complaint List
+</h2>
+
+
+
+
+
+<table>
+
+
+
+<thead>
+
+
+<tr>
+
+
+<th>
+ID
+</th>
+
+
+<th>
+Name
+</th>
+
+
+<th>
+Issue
+</th>
+
+
+<th>
+Status
+</th>
+
+
+<th>
+Action
+</th>
+
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+
+
+<tbody id="complaintTable">
+
+
+</tbody>
+
+
+
+
+</table>
+
+
+
+</section>
+
+
+
+
+
+
+
+</main>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Libraries -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+
+
+
+
+
+
+
+<script>
+
+
+function openPage(page){
+
+window.location.href=page;
+
+}
+
+
+
+
+
+function logout(){
+
+
+localStorage.removeItem("waterUser");
+
+
+window.location.href="index.html";
+
+
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+<script src="js/admin.js"></script>
+
+
+<script src="js/theme.js"></script>
+
+
+<script src="js/loading.js"></script>
+
+
+
+</body>
+
+
+</html>
