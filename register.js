@@ -1,142 +1,188 @@
-```html
-<!DOCTYPE html>
-<html lang="en">
+```javascript
+// ===============================
+// WaterGuardian-X Register
+// Country → State → District
+// ===============================
 
-<head>
+// IMPORTANT:
+// Change this URL if your deployed backend has a different URL.
+const API = "https://waterguardian-backend.onrender.com";
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Register | WaterGuardian-X</title>
-
-    <link rel="stylesheet" href="register.css">
-
-</head>
-
-<body>
-
-<div class="container">
-
-    <div class="register-card">
-
-        <div class="logo">
-            💧
-        </div>
-
-        <h1>
-            WaterGuardian-X
-        </h1>
-
-        <p>
-            Create Citizen Account
-        </p>
-
-        <form id="registerForm">
-
-            <!-- NAME -->
-            <input
-                type="text"
-                id="name"
-                placeholder="Full Name"
-                required
-            >
-
-            <!-- EMAIL -->
-            <input
-                type="email"
-                id="email"
-                placeholder="Email Address"
-                required
-            >
-
-            <!-- PHONE -->
-            <input
-                type="text"
-                id="phone"
-                placeholder="Mobile Number"
-                maxlength="10"
-                required
-            >
-
-            <!-- COUNTRY -->
-            <select id="countrySelect" required>
-
-                <option value="">
-                    Select Country
-                </option>
-
-            </select>
+const countrySelect = document.getElementById("countrySelect");
+const stateSelect = document.getElementById("stateSelect");
+const districtSelect = document.getElementById("districtSelect");
 
 
-            <!-- STATE -->
-            <select id="stateSelect" required disabled>
+// --------------------------------
+// Helper: add options to dropdown
+// --------------------------------
+function addOptions(select, items, placeholder) {
 
-                <option value="">
-                    Select State
-                </option>
+    select.innerHTML = "";
 
-            </select>
+    const firstOption = document.createElement("option");
+    firstOption.value = "";
+    firstOption.textContent = placeholder;
+    select.appendChild(firstOption);
 
+    items.forEach(item => {
 
-            <!-- DISTRICT -->
-            <select id="districtSelect" required disabled>
+        const option = document.createElement("option");
 
-                <option value="">
-                    Select District
-                </option>
+        // Supports either:
+        // "India"
+        // OR
+        // { name: "India" }
+        if (typeof item === "string") {
+            option.value = item;
+            option.textContent = item;
+        } else {
+            option.value = item.name || item.title || item.value || "";
+            option.textContent = item.name || item.title || item.value || "";
+        }
 
-            </select>
-
-
-            <!-- ADDRESS -->
-            <input
-                type="text"
-                id="address"
-                placeholder="Address"
-                required
-            >
-
-
-            <!-- PASSWORD -->
-            <input
-                type="password"
-                id="password"
-                placeholder="Password"
-                required
-            >
+        select.appendChild(option);
+    });
+}
 
 
-            <!-- CONFIRM PASSWORD -->
-            <input
-                type="password"
-                id="confirmPassword"
-                placeholder="Confirm Password"
-                required
-            >
+// --------------------------------
+// Load Countries
+// --------------------------------
+async function loadCountries() {
+
+    try {
+
+        const response = await fetch(`${API}/api/location/countries`);
+
+        if (!response.ok) {
+            throw new Error("Country API failed");
+        }
+
+        const data = await response.json();
+
+        const countries = Array.isArray(data)
+            ? data
+            : data.countries || data.data || [];
+
+        addOptions(
+            countrySelect,
+            countries,
+            "Select Country"
+        );
+
+    } catch (error) {
+
+        console.error("Country loading error:", error);
+
+        countrySelect.innerHTML =
+            `<option value="">Unable to load countries</option>`;
+    }
+}
 
 
-            <button type="submit">
-                Create Account
-            </button>
+// --------------------------------
+// Country changed
+// --------------------------------
+countrySelect.addEventListener("change", async function () {
+
+    const country = this.value;
+
+    stateSelect.innerHTML =
+        `<option value="">Select State</option>`;
+
+    districtSelect.innerHTML =
+        `<option value="">Select District</option>`;
+
+    stateSelect.disabled = true;
+    districtSelect.disabled = true;
+
+    if (!country) return;
+
+    try {
+
+        const response = await fetch(
+            `${API}/api/location/states/${encodeURIComponent(country)}`
+        );
+
+        if (!response.ok) {
+            throw new Error("State API failed");
+        }
+
+        const data = await response.json();
+
+        const states = Array.isArray(data)
+            ? data
+            : data.states || data.data || [];
+
+        addOptions(
+            stateSelect,
+            states,
+            "Select State"
+        );
+
+        stateSelect.disabled = false;
+
+    } catch (error) {
+
+        console.error("State loading error:", error);
+
+        stateSelect.innerHTML =
+            `<option value="">Unable to load states</option>`;
+    }
+});
 
 
-            <p id="message"></p>
+// --------------------------------
+// State changed
+// --------------------------------
+stateSelect.addEventListener("change", async function () {
 
-        </form>
+    const state = this.value;
+
+    districtSelect.innerHTML =
+        `<option value="">Select District</option>`;
+
+    districtSelect.disabled = true;
+
+    if (!state) return;
+
+    try {
+
+        const response = await fetch(
+            `${API}/api/location/districts/${encodeURIComponent(state)}`
+        );
+
+        if (!response.ok) {
+            throw new Error("District API failed");
+        }
+
+        const data = await response.json();
+
+        const districts = Array.isArray(data)
+            ? data
+            : data.districts || data.data || [];
+
+        addOptions(
+            districtSelect,
+            districts,
+            "Select District"
+        );
+
+        districtSelect.disabled = false;
+
+    } catch (error) {
+
+        console.error("District loading error:", error);
+
+        districtSelect.innerHTML =
+            `<option value="">Unable to load districts</option>`;
+    }
+});
 
 
-        <a href="login.html">
-            Already have account? Login
-        </a>
-
-    </div>
-
-</div>
-
-
-<script src="register.js"></script>
-
-</body>
-
-</html>
+// --------------------------------
+// Start
+// --------------------------------
+loadCountries();
 ```
