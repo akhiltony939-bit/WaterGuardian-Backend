@@ -4,8 +4,7 @@ console.log("💧 WaterGuardian-X Complaint JS Loaded");
 // API
 // =====================================================
 
-const API = "http://localhost:5000/api";
-
+const API = "https://waterguardian-backend.onrender.com/api";
 // =====================================================
 // ELEMENTS
 // =====================================================
