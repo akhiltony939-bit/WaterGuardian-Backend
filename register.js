@@ -1,11 +1,3 @@
-```javascript
-// ===============================
-// WaterGuardian-X Register
-// Country → State → District
-// ===============================
-
-// IMPORTANT:
-// Change this URL if your deployed backend has a different URL.
 const API = "https://waterguardian-backend.onrender.com";
 
 const countrySelect = document.getElementById("countrySelect");
@@ -13,63 +5,31 @@ const stateSelect = document.getElementById("stateSelect");
 const districtSelect = document.getElementById("districtSelect");
 
 
-// --------------------------------
-// Helper: add options to dropdown
-// --------------------------------
-function addOptions(select, items, placeholder) {
-
-    select.innerHTML = "";
-
-    const firstOption = document.createElement("option");
-    firstOption.value = "";
-    firstOption.textContent = placeholder;
-    select.appendChild(firstOption);
-
-    items.forEach(item => {
-
-        const option = document.createElement("option");
-
-        // Supports either:
-        // "India"
-        // OR
-        // { name: "India" }
-        if (typeof item === "string") {
-            option.value = item;
-            option.textContent = item;
-        } else {
-            option.value = item.name || item.title || item.value || "";
-            option.textContent = item.name || item.title || item.value || "";
-        }
-
-        select.appendChild(option);
-    });
-}
-
-
-// --------------------------------
-// Load Countries
-// --------------------------------
+// ==========================================
+// LOAD COUNTRIES
+// ==========================================
 async function loadCountries() {
-
     try {
-
         const response = await fetch(`${API}/api/location/countries`);
 
         if (!response.ok) {
-            throw new Error("Country API failed");
+            throw new Error("Failed to load countries");
         }
 
         const data = await response.json();
 
-        const countries = Array.isArray(data)
-            ? data
-            : data.countries || data.data || [];
+        countrySelect.innerHTML =
+            `<option value="">Select Country</option>`;
 
-        addOptions(
-            countrySelect,
-            countries,
-            "Select Country"
-        );
+        data.countries.forEach(country => {
+
+            const option = document.createElement("option");
+
+            option.value = country.isoCode;
+            option.textContent = country.name;
+
+            countrySelect.appendChild(option);
+        });
 
     } catch (error) {
 
@@ -81,12 +41,12 @@ async function loadCountries() {
 }
 
 
-// --------------------------------
-// Country changed
-// --------------------------------
+// ==========================================
+// COUNTRY → STATES
+// ==========================================
 countrySelect.addEventListener("change", async function () {
 
-    const country = this.value;
+    const countryCode = this.value;
 
     stateSelect.innerHTML =
         `<option value="">Select State</option>`;
@@ -97,29 +57,29 @@ countrySelect.addEventListener("change", async function () {
     stateSelect.disabled = true;
     districtSelect.disabled = true;
 
-    if (!country) return;
+    if (!countryCode) return;
 
     try {
 
         const response = await fetch(
-            `${API}/api/location/states/${encodeURIComponent(country)}`
+            `${API}/api/location/states/${countryCode}`
         );
 
         if (!response.ok) {
-            throw new Error("State API failed");
+            throw new Error("Failed to load states");
         }
 
         const data = await response.json();
 
-        const states = Array.isArray(data)
-            ? data
-            : data.states || data.data || [];
+        data.states.forEach(state => {
 
-        addOptions(
-            stateSelect,
-            states,
-            "Select State"
-        );
+            const option = document.createElement("option");
+
+            option.value = state.isoCode;
+            option.textContent = state.name;
+
+            stateSelect.appendChild(option);
+        });
 
         stateSelect.disabled = false;
 
@@ -133,41 +93,42 @@ countrySelect.addEventListener("change", async function () {
 });
 
 
-// --------------------------------
-// State changed
-// --------------------------------
+// ==========================================
+// STATE → DISTRICTS / CITIES
+// ==========================================
 stateSelect.addEventListener("change", async function () {
 
-    const state = this.value;
+    const countryCode = countrySelect.value;
+    const stateCode = this.value;
 
     districtSelect.innerHTML =
         `<option value="">Select District</option>`;
 
     districtSelect.disabled = true;
 
-    if (!state) return;
+    if (!countryCode || !stateCode) return;
 
     try {
 
         const response = await fetch(
-            `${API}/api/location/districts/${encodeURIComponent(state)}`
+            `${API}/api/location/cities/${countryCode}/${stateCode}`
         );
 
         if (!response.ok) {
-            throw new Error("District API failed");
+            throw new Error("Failed to load districts");
         }
 
         const data = await response.json();
 
-        const districts = Array.isArray(data)
-            ? data
-            : data.districts || data.data || [];
+        data.cities.forEach(city => {
 
-        addOptions(
-            districtSelect,
-            districts,
-            "Select District"
-        );
+            const option = document.createElement("option");
+
+            option.value = city.name;
+            option.textContent = city.name;
+
+            districtSelect.appendChild(option);
+        });
 
         districtSelect.disabled = false;
 
@@ -181,8 +142,7 @@ stateSelect.addEventListener("change", async function () {
 });
 
 
-// --------------------------------
-// Start
-// --------------------------------
+// ==========================================
+// START
+// ==========================================
 loadCountries();
-```
