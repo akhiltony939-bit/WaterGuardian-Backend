@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin.html
+Disallow: /dashboard.html
+Disallow: /login.html
+Disallow: /register.html
+Disallow: /profile.html
+Disallow: /complaint.html
+Disallow: /receipt.html
+Disallow: /qr.html
+Disallow: /map.html
+Disallow: /ai.html
+Disallow: /track.html
+
+Sitemap: https://waterguardian-x-akhil.netlify.app/sitemap.xml
