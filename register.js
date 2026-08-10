@@ -1,4 +1,3 @@
-```javascript
 const API = "https://waterguardian-backend.onrender.com";
 
 const countrySelect = document.getElementById("countrySelect");
@@ -9,15 +8,14 @@ const registerForm = document.getElementById("registerForm");
 const message = document.getElementById("message");
 
 
-// ==========================================
+// ================================
 // LOAD COUNTRIES
-// ==========================================
+// ================================
 async function loadCountries() {
-
     try {
-
-        const response =
-            await fetch(`${API}/api/location/countries`);
+        const response = await fetch(
+            `${API}/api/location/countries`
+        );
 
         if (!response.ok) {
             throw new Error("Failed to load countries");
@@ -26,10 +24,9 @@ async function loadCountries() {
         const data = await response.json();
 
         countrySelect.innerHTML =
-            `<option value="">Select Country</option>`;
+            '<option value="">Select Country</option>';
 
-        data.countries.forEach(country => {
-
+        data.countries.forEach(function (country) {
             const option = document.createElement("option");
 
             option.value = country.isoCode;
@@ -39,39 +36,38 @@ async function loadCountries() {
         });
 
     } catch (error) {
-
         console.error("Country loading error:", error);
 
         countrySelect.innerHTML =
-            `<option value="">Unable to load countries</option>`;
+            '<option value="">Unable to load countries</option>';
     }
 }
 
 
-// ==========================================
+// ================================
 // COUNTRY → STATES
-// ==========================================
+// ================================
 countrySelect.addEventListener("change", async function () {
 
-    const countryCode = this.value;
+    const countryCode = countrySelect.value;
 
     stateSelect.innerHTML =
-        `<option value="">Select State</option>`;
+        '<option value="">Select State</option>';
 
     districtSelect.innerHTML =
-        `<option value="">Select District</option>`;
+        '<option value="">Select District</option>';
 
     stateSelect.disabled = true;
     districtSelect.disabled = true;
 
-    if (!countryCode) return;
+    if (!countryCode) {
+        return;
+    }
 
     try {
-
-        const response =
-            await fetch(
-                `${API}/api/location/states/${countryCode}`
-            );
+        const response = await fetch(
+            `${API}/api/location/states/${countryCode}`
+        );
 
         if (!response.ok) {
             throw new Error("Failed to load states");
@@ -79,7 +75,7 @@ countrySelect.addEventListener("change", async function () {
 
         const data = await response.json();
 
-        data.states.forEach(state => {
+        data.states.forEach(function (state) {
 
             const option = document.createElement("option");
 
@@ -92,36 +88,35 @@ countrySelect.addEventListener("change", async function () {
         stateSelect.disabled = false;
 
     } catch (error) {
-
         console.error("State loading error:", error);
 
         stateSelect.innerHTML =
-            `<option value="">Unable to load states</option>`;
+            '<option value="">Unable to load states</option>';
     }
 });
 
 
-// ==========================================
-// STATE → DISTRICTS / CITIES
-// ==========================================
+// ================================
+// STATE → DISTRICTS
+// ================================
 stateSelect.addEventListener("change", async function () {
 
     const countryCode = countrySelect.value;
-    const stateCode = this.value;
+    const stateCode = stateSelect.value;
 
     districtSelect.innerHTML =
-        `<option value="">Select District</option>`;
+        '<option value="">Select District</option>';
 
     districtSelect.disabled = true;
 
-    if (!countryCode || !stateCode) return;
+    if (!countryCode || !stateCode) {
+        return;
+    }
 
     try {
-
-        const response =
-            await fetch(
-                `${API}/api/location/cities/${countryCode}/${stateCode}`
-            );
+        const response = await fetch(
+            `${API}/api/location/cities/${countryCode}/${stateCode}`
+        );
 
         if (!response.ok) {
             throw new Error("Failed to load districts");
@@ -129,7 +124,7 @@ stateSelect.addEventListener("change", async function () {
 
         const data = await response.json();
 
-        data.cities.forEach(city => {
+        data.cities.forEach(function (city) {
 
             const option = document.createElement("option");
 
@@ -142,24 +137,24 @@ stateSelect.addEventListener("change", async function () {
         districtSelect.disabled = false;
 
     } catch (error) {
-
         console.error("District loading error:", error);
 
         districtSelect.innerHTML =
-            `<option value="">Unable to load districts</option>`;
+            '<option value="">Unable to load districts</option>';
     }
 });
 
 
-// ==========================================
-// CREATE ACCOUNT
-// ==========================================
+// ================================
+// REGISTER ACCOUNT
+// ================================
 registerForm.addEventListener("submit", async function (event) {
 
     event.preventDefault();
 
-    message.textContent = "";
+    message.textContent = "Creating account...";
     message.style.color = "";
+
 
     const name =
         document.getElementById("name").value.trim();
@@ -169,15 +164,6 @@ registerForm.addEventListener("submit", async function (event) {
 
     const phone =
         document.getElementById("phone").value.trim();
-
-    const country =
-        countrySelect.options[countrySelect.selectedIndex]?.text || "";
-
-    const state =
-        stateSelect.options[stateSelect.selectedIndex]?.text || "";
-
-    const district =
-        districtSelect.options[districtSelect.selectedIndex]?.text || "";
 
     const address =
         document.getElementById("address").value.trim();
@@ -189,10 +175,6 @@ registerForm.addEventListener("submit", async function (event) {
         document.getElementById("confirmPassword").value;
 
 
-    // ==========================================
-    // VALIDATION
-    // ==========================================
-
     if (password !== confirmPassword) {
 
         message.textContent =
@@ -201,7 +183,8 @@ registerForm.addEventListener("submit", async function (event) {
         return;
     }
 
-    if (phone.length !== 10 || !/^\d{10}$/.test(phone)) {
+
+    if (!/^\d{10}$/.test(phone)) {
 
         message.textContent =
             "Please enter a valid 10-digit mobile number.";
@@ -211,14 +194,6 @@ registerForm.addEventListener("submit", async function (event) {
 
 
     try {
-
-        message.textContent =
-            "Creating account...";
-
-
-        // ==========================================
-        // SEND TO BACKEND
-        // ==========================================
 
         const response = await fetch(
             `${API}/api/auth/register`,
@@ -230,11 +205,9 @@ registerForm.addEventListener("submit", async function (event) {
                 },
 
                 body: JSON.stringify({
-
                     name: name,
                     email: email,
                     password: password
-
                 })
             }
         );
@@ -242,10 +215,8 @@ registerForm.addEventListener("submit", async function (event) {
 
         const data = await response.json();
 
+        console.log("Register response:", data);
 
-        // ==========================================
-        // SUCCESS
-        // ==========================================
 
         if (response.ok && data.success) {
 
@@ -254,26 +225,17 @@ registerForm.addEventListener("submit", async function (event) {
 
             message.style.color = "green";
 
-
-            setTimeout(() => {
-
+            setTimeout(function () {
                 window.location.href = "login.html";
-
             }, 1500);
 
-            return;
+        } else {
+
+            message.textContent =
+                data.message || "Registration failed.";
+
+            message.style.color = "red";
         }
-
-
-        // ==========================================
-        // ERROR FROM SERVER
-        // ==========================================
-
-        message.textContent =
-            data.message || "Registration failed.";
-
-        message.style.color = "red";
-
 
     } catch (error) {
 
@@ -284,12 +246,10 @@ registerForm.addEventListener("submit", async function (event) {
 
         message.style.color = "red";
     }
-
 });
 
 
-// ==========================================
+// ================================
 // START
-// ==========================================
+// ================================
 loadCountries();
-```
