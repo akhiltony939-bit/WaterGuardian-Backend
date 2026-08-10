@@ -4,368 +4,607 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>WaterGuardian-X | Citizen Dashboard</title>
 
-<title>
-WaterGuardian-X | Citizen Dashboard
-</title>
-
+<meta name="theme-color" content="#0B6EF3">
+<meta name="description" content="WaterGuardian-X Citizen Dashboard">
 
 <link rel="icon" href="images/logo.png">
 
-
 <link rel="stylesheet" href="css/theme.css">
-
 <link rel="stylesheet" href="css/loading.css">
-
 <link rel="stylesheet" href="css/dashboard.css">
-
 
 </head>
 
-
-
 <body>
 
-
-
-<!-- Loader -->
+<!-- ================= Loader ================= -->
 
 <div id="loader">
 
-<div class="loader-content">
+    <div class="loader-content">
 
-<div class="water-drop">
-💧
-</div>
+        <div class="water-drop">💧</div>
 
-<h1>
-WaterGuardian-X
-</h1>
+        <h1>WaterGuardian-X</h1>
 
-<p>
-Citizen Dashboard
-</p>
+        <p>Citizen Dashboard</p>
+
+    </div>
 
 </div>
 
-</div>
-
-
-
-
-
+<!-- ================= Dashboard ================= -->
 
 <div class="dashboard">
 
+<!-- ================= Header ================= -->
 
+<header class="dashboard-header">
 
-<!-- Header -->
+    <div class="logo">
 
+        <img
+        src="images/logo.png"
+        alt="WaterGuardian-X Logo"
+        loading="lazy">
 
-<header>
+        <div>
 
+            <h2>WaterGuardian-X</h2>
 
-<div class="logo">
+            <p>Smart Water Management Portal</p>
 
-<img src="images/logo.png">
+        </div>
 
-<span>
-WaterGuardian-X
-</span>
+    </div>
 
-</div>
+    <div class="header-actions">
 
+        <button
+        class="notification-btn"
+        onclick="showNotifications()">
 
+            🔔
+            <span id="notificationCount">0</span>
 
-<button onclick="logout()">
+        </button>
 
-🚪 Logout
+        <button
+        class="logout-btn"
+        onclick="logout()">
 
-</button>
+            🚪 Logout
 
+        </button>
+
+    </div>
 
 </header>
 
+<!-- ================= Welcome ================= -->
 
+<section class="welcome-card">
 
+    <div>
 
+        <h1>
+            Welcome,
+            <span id="welcomeName">Citizen</span>
+            👋
+        </h1>
 
+        <p>
 
+            Welcome to the WaterGuardian-X Citizen Portal.
 
+            Report water problems, track complaint progress,
+            download receipts and help protect our water resources.
 
+        </p>
 
-<!-- Welcome -->
+    </div>
 
+    <div class="citizen-icon">
 
-<section class="welcome">
+        👤
 
-
-<h1>
-Welcome Citizen 👋
-</h1>
-
-
-<p>
-Manage your water complaints and track solutions easily.
-</p>
-
+    </div>
 
 </section>
 
+<!-- ================= Citizen Profile ================= -->
 
+<section class="profile-card">
 
+<h2>👤 Citizen Profile</h2>
 
+<div class="profile-details">
 
+<p>
 
+<strong>Name :</strong>
 
+<span id="userName">
 
+Loading...
 
-<!-- Statistics -->
+</span>
 
+</p>
+
+<p>
+
+<strong>Email :</strong>
+
+<span id="userEmail">
+
+Loading...
+
+</span>
+
+</p>
+
+<p>
+
+<strong>User ID :</strong>
+
+<span id="userId">
+
+Loading...
+
+</span>
+
+</p>
+
+<p>
+
+<strong>Account :</strong>
+
+<span id="userRole">
+
+Citizen
+
+</span>
+
+</p>
+
+</div>
+
+</section>
+<!-- ================= Statistics ================= -->
 
 <section class="stats">
 
+    <div class="stat-card">
 
+        <div class="icon">📋</div>
 
-<div class="stat-card">
+        <h2 id="totalComplaint">0</h2>
 
+        <p>Total Complaints</p>
 
-<h2 id="totalComplaint">
-0
-</h2>
+    </div>
 
+    <div class="stat-card">
 
-<p>
-Total Complaints
-</p>
+        <div class="icon">⏳</div>
 
+        <h2 id="pendingComplaint">0</h2>
 
-</div>
+        <p>Pending Complaints</p>
 
+    </div>
 
+    <div class="stat-card">
 
+        <div class="icon">✅</div>
 
+        <h2 id="resolvedComplaint">0</h2>
 
+        <p>Resolved Complaints</p>
 
-<div class="stat-card">
+    </div>
 
+    <div class="stat-card">
 
-<h2 id="pendingComplaint">
-0
-</h2>
+        <div class="icon">🚰</div>
 
+        <h2 id="waterSaved">0</h2>
 
-<p>
-Pending
-</p>
+        <p>Issues Resolved</p>
 
-
-</div>
-
-
-
-
-
-
-<div class="stat-card">
-
-
-<h2 id="resolvedComplaint">
-0
-</h2>
-
-
-<p>
-Resolved
-</p>
-
-
-</div>
-
-
+    </div>
 
 </section>
 
+<!-- ================= Track Complaint ================= -->
 
+<section class="track-section">
 
+    <h2>🔎 Track Complaint</h2>
 
+    <div class="track-box">
 
+        <input
+            type="text"
+            id="trackId"
+            placeholder="Enter Complaint ID (WGX-XXXXXXXX)"
+            autocomplete="off"
+            maxlength="25">
 
+        <button onclick="trackComplaint()">
 
+            Track Complaint
 
+        </button>
 
-<!-- Quick Actions -->
+    </div>
 
+    <p id="trackResult"></p>
+
+</section>
+
+<!-- ================= Quick Actions ================= -->
 
 <section class="actions">
 
+    <h2>⚡ Quick Actions</h2>
 
-<h2>
-Quick Actions
-</h2>
+    <div class="action-grid">
 
+        <a href="complaint.html" class="action-card">
 
+            <div>🚰</div>
 
+            <h3>Register Complaint</h3>
 
-<div class="action-grid">
+            <p>Report a new water-related issue.</p>
 
+        </a>
 
+        <a href="track.html" class="action-card">
 
-<a href="complaint.html">
+            <div>🔎</div>
 
-🚰
+            <h3>Track Complaint</h3>
 
-<h3>
-Register Complaint
-</h3>
+            <p>View complaint status and updates.</p>
 
-</a>
+        </a>
 
+        <a href="map.html" class="action-card">
 
+            <div>🗺️</div>
 
+            <h3>Smart Water Map</h3>
 
+            <p>Explore reported complaint locations.</p>
 
-<a href="map.html">
+        </a>
 
-🗺️
+        <a href="ai.html" class="action-card">
 
-<h3>
-Water Map
-</h3>
+            <div>🤖</div>
 
-</a>
+            <h3>Aqua AI Assistant</h3>
 
+            <p>Get smart water conservation guidance.</p>
 
+        </a>
 
-
-
-
-<a href="ai.html">
-
-🤖
-
-<h3>
-Aqua AI
-</h3>
-
-</a>
-
-
-
-
-
-
-
-<a href="receipt.html">
-
-📄
-
-<h3>
-Receipt
-</h3>
-
-</a>
-
-
-
-
-
-</div>
-
+    </div>
 
 </section>
-
-
-
-
-
-
-
-
-
-<!-- Recent Complaints -->
-
+<!-- ================= Recent Complaints ================= -->
 
 <section class="recent">
 
+    <h2>📋 My Recent Complaints</h2>
+<!-- ==========================================
+     SMART WATER SENSOR MONITORING
+========================================== -->
 
-<h2>
-Recent Complaints
-</h2>
+<section class="dashboard-section sensor-section">
 
+    <div class="section-header">
 
-<table>
+        <div>
+            <h2>💧 Live Water Monitoring</h2>
+            <p>Current water sensor readings</p>
+        </div>
 
+        <button
+            class="refresh-btn"
+            onclick="loadSensors()">
+            🔄 Refresh
+        </button>
 
-<thead>
+    </div>
 
-<tr>
+    <div id="sensorContainer" class="sensor-grid">
 
-<th>ID</th>
+        <div class="sensor-loading">
+            💧 Loading water sensors...
+        </div>
 
-<th>Issue</th>
+    </div>
 
-<th>Status</th>
+</section>
+    <table>
 
-</tr>
+        <thead>
 
-</thead>
+            <tr>
 
+                <th>Complaint ID</th>
+                <th>Issue</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Receipt</th>
 
+            </tr>
 
-<tbody id="recentTable">
+        </thead>
 
+        <tbody id="recentTable">
 
-</tbody>
+            <tr>
 
+                <td colspan="6">
 
+                    ⏳ Loading complaints...
 
-</table>
+                </td>
 
+            </tr>
 
+        </tbody>
+
+    </table>
 
 </section>
 
+<!-- ================= Footer ================= -->
 
+<footer>
 
+    <p>© 2026 WaterGuardian-X</p>
 
+    <p>Smart Water Management System</p>
 
+</footer>
 
 </div>
 
-
-
-
-
-
-
+<!-- ================= Scripts ================= -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="js/dashboard.js"></script>
-
 <script src="js/theme.js"></script>
-
 <script src="js/loading.js"></script>
-
 
 <script>
 
-
 function logout(){
 
-localStorage.removeItem("waterUser");
+    if(confirm("Are you sure you want to logout?")){
 
-window.location.href="index.html";
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+
+        window.location.href="login.html";
+
+    }
 
 }
 
+function trackComplaint(){
+
+    const id=document
+        .getElementById("trackId")
+        .value
+        .trim()
+        .toUpperCase();
+
+    const result=document.getElementById("trackResult");
+
+    if(id===""){
+
+        result.style.color="red";
+        result.innerHTML="⚠ Please enter Complaint ID";
+
+        return;
+
+    }
+
+    window.location.href=
+    "track.html?id="+encodeURIComponent(id);
+
+}
+
+function showNotifications(){
+
+    alert(
+`🔔 Notifications
+
+• Welcome to WaterGuardian-X
+
+• Track your complaint regularly
+
+• New complaint updates will appear here.`
+    );
+
+}
 
 </script>
+<script>
+async function loadSensors() {
+
+    const container = document.getElementById("sensorContainer");
+
+    if (!container) return;
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:5000/api/sensors"
+        );
+
+        const data = await response.json();
+
+        if (!data.success) {
+            throw new Error(
+                data.message || "Failed to load sensors"
+            );
+        }
+
+        const sensors = data.sensors || [];
+
+        if (sensors.length === 0) {
+
+            container.innerHTML = `
+                <div class="sensor-loading">
+                    💧 No water sensors available.
+                </div>
+            `;
+
+            return;
+        }
+
+        container.innerHTML = "";
+
+        sensors.forEach(sensor => {
+
+            let statusClass = "normal";
+
+            if (sensor.status === "Warning") {
+                statusClass = "warning";
+            }
+
+            if (sensor.status === "Critical") {
+                statusClass = "critical";
+            }
+
+            if (sensor.status === "Offline") {
+                statusClass = "offline";
+            }
+
+            const card = document.createElement("div");
+
+            card.className = "sensor-card";
+
+            card.innerHTML = `
+                <div class="sensor-card-header">
+
+                    <div>
+                        <h3>💧 ${sensor.name || "Water Sensor"}</h3>
+                        <p>
+                            ${sensor.sensorId || "Unknown ID"}
+                        </p>
+                    </div>
+
+                    <span class="sensor-status ${statusClass}">
+                        ${sensor.status || "Normal"}
+                    </span>
+
+                </div>
+
+                <div class="sensor-location">
+                    📍 ${sensor.location || "Location unavailable"}
+                </div>
+
+                <div class="sensor-values">
+
+                    <div class="sensor-value">
+                        <span>💧</span>
+                        <strong>
+                            ${sensor.waterLevel ?? 0}%
+                        </strong>
+                        <small>Water Level</small>
+                    </div>
+
+                    <div class="sensor-value">
+                        <span>🧪</span>
+                        <strong>
+                            ${sensor.waterQuality ?? 0}%
+                        </strong>
+                        <small>Water Quality</small>
+                    </div>
+
+                    <div class="sensor-value">
+                        <span>🌊</span>
+                        <strong>
+                            ${sensor.flowRate ?? 0}
+                        </strong>
+                        <small>Flow Rate</small>
+                    </div>
+
+                    <div class="sensor-value">
+                        <span>🌡️</span>
+                        <strong>
+                            ${sensor.temperature ?? 0}°C
+                        </strong>
+                        <small>Temperature</small>
+                    </div>
+
+                </div>
+
+                <div class="sensor-updated">
+                    Last updated:
+                    ${
+                        sensor.lastUpdated
+                            ? new Date(
+                                sensor.lastUpdated
+                              ).toLocaleString()
+                            : "Unknown"
+                    }
+                </div>
+            `;
+
+            container.appendChild(card);
+
+        });
+
+    } catch (error) {
+
+        console.error(
+            "SENSOR LOAD ERROR:",
+            error
+        );
+
+        container.innerHTML = `
+            <div class="sensor-loading">
+
+                ❌ Unable to load sensor data.
+
+                <br><br>
+
+                Make sure the WaterGuardian-X backend
+                is running.
+
+            </div>
+        `;
+    }
+}
 
 
+// Load sensors when dashboard opens
+document.addEventListener(
+    "DOMContentLoaded",
+    loadSensors
+);
 
+
+// Refresh sensor data every 10 seconds
+setInterval(
+    loadSensors,
+    10000
+);
+</script>
 </body>
-
 
 </html>

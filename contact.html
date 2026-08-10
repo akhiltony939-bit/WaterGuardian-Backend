@@ -3,22 +3,453 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
+    <title>WaterGuardian-X | Contact Us</title>
 
-<title>
-WaterGuardian-X | Contact
-</title>
+    <meta
+        name="description"
+        content="Contact WaterGuardian-X Smart Water Complaint Management System"
+    >
 
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/loading.css">
 
-<link rel="stylesheet" href="css/theme.css">
+    <style>
 
-<link rel="stylesheet" href="css/loading.css">
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-<link rel="stylesheet" href="css/style.css">
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
 
+            background:
+                linear-gradient(
+                    135deg,
+                    #eaf7ff,
+                    #dff4ff,
+                    #f8fcff
+                );
+
+            color: #123;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            width: 100%;
+            padding: 18px 7%;
+
+            background: #0b6ef3;
+            color: white;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            box-shadow:
+                0 4px 18px rgba(0,0,0,0.15);
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h2 {
+            font-size: 24px;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.75;
+            transform: translateY(-2px);
+        }
+
+        /* ================= HERO ================= */
+
+        .contact-hero {
+
+            padding: 65px 20px 45px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0878f9,
+                    #00a8e8
+                );
+
+            color: white;
+        }
+
+        .contact-hero h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .contact-hero p {
+            font-size: 17px;
+            opacity: 0.95;
+        }
+
+        /* ================= MAIN ================= */
+
+        .contact-section {
+
+            width: 92%;
+            max-width: 1150px;
+
+            margin: 45px auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 30px;
+        }
+
+        /* ================= CARDS ================= */
+
+        .contact-card {
+
+            background: rgba(255,255,255,0.96);
+
+            padding: 35px;
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.12);
+
+            border:
+                1px solid #e3eef8;
+        }
+
+        .contact-card h2 {
+
+            color: #0b6ef3;
+
+            margin-bottom: 10px;
+
+            font-size: 27px;
+        }
+
+        .contact-card > p {
+
+            color: #667;
+
+            margin-bottom: 25px;
+
+            line-height: 1.6;
+        }
+
+        /* ================= FORM ================= */
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-weight: 600;
+
+            color: #234;
+        }
+
+        input,
+        textarea {
+
+            width: 100%;
+
+            padding: 14px 15px;
+
+            border:
+                1px solid #ccdcea;
+
+            border-radius: 10px;
+
+            font-size: 15px;
+
+            outline: none;
+
+            background: #fafdff;
+
+            transition: 0.25s;
+        }
+
+        input:focus,
+        textarea:focus {
+
+            border-color: #0b6ef3;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(11,110,243,0.10);
+
+            background: white;
+        }
+
+        textarea {
+
+            min-height: 140px;
+
+            resize: vertical;
+        }
+
+        .send-btn {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0b6ef3,
+                    #0759c9
+                );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .send-btn:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 20px
+                rgba(11,110,243,0.25);
+        }
+
+        /* ================= INFO ================= */
+
+        .info-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 18px;
+
+            margin-top: 20px;
+        }
+
+        .info-item {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 15px;
+
+            padding: 18px;
+
+            border-radius: 14px;
+
+            background: #f3f9ff;
+
+            border:
+                1px solid #e1edf7;
+        }
+
+        .info-icon {
+
+            width: 45px;
+            height: 45px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 50%;
+
+            background: #dcebff;
+
+            font-size: 22px;
+        }
+
+        .info-item h3 {
+
+            margin-bottom: 5px;
+
+            color: #0b6ef3;
+
+            font-size: 16px;
+        }
+
+        .info-item p {
+
+            color: #555;
+
+            line-height: 1.5;
+
+            word-break: break-word;
+        }
+
+        /* ================= QUICK LINKS ================= */
+
+        .quick-links {
+
+            margin-top: 25px;
+
+            padding-top: 20px;
+
+            border-top:
+                1px solid #e1eaf2;
+        }
+
+        .quick-links h3 {
+
+            margin-bottom: 12px;
+        }
+
+        .quick-links a {
+
+            display: inline-block;
+
+            margin: 5px 7px 5px 0;
+
+            padding: 9px 14px;
+
+            border-radius: 20px;
+
+            background: #e9f3ff;
+
+            color: #0b6ef3;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+        .quick-links a:hover {
+
+            background: #0b6ef3;
+
+            color: white;
+        }
+
+        /* ================= MESSAGE ================= */
+
+        #message {
+
+            margin-top: 15px;
+
+            text-align: center;
+
+            font-weight: 600;
+
+            min-height: 20px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            margin-top: 50px;
+
+            padding: 30px 20px;
+
+            text-align: center;
+
+            background: #063b7a;
+
+            color: white;
+        }
+
+        footer h3 {
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 800px) {
+
+            header {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+                text-align: center;
+            }
+
+            nav {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 13px;
+            }
+
+            .contact-hero h1 {
+                font-size: 32px;
+            }
+
+            .contact-section {
+
+                grid-template-columns: 1fr;
+
+                width: 94%;
+            }
+
+            .contact-card {
+
+                padding: 25px 20px;
+            }
+        }
+
+    </style>
 
 </head>
 
@@ -26,195 +457,400 @@ WaterGuardian-X | Contact
 <body>
 
 
-<!-- Loader -->
+<!-- ================= LOADER ================= -->
 
 <div id="loader">
 
-<div class="loader-content">
+    <div class="loader-content">
 
-<div class="water-drop">
-💧
+        <div class="water-drop">
+            💧
+        </div>
+
+        <h1>
+            WaterGuardian-X
+        </h1>
+
+        <p>
+            Contact Smart Water Management Team
+        </p>
+
+    </div>
+
 </div>
 
-<h1>
-WaterGuardian-X
-</h1>
 
-<p>
-Contact Smart Water Management Team
-</p>
-
-</div>
-
-</div>
-
-
-
-
-
-<!-- Header -->
+<!-- ================= HEADER ================= -->
 
 <header>
 
-<h2>
-💧 WaterGuardian-X
-</h2>
+    <h2>
+        💧 WaterGuardian-X
+    </h2>
 
+    <nav>
 
-<nav>
+        <a href="index.html">
+            🏠 Home
+        </a>
 
-<a href="index.html">
-Home
-</a>
+        <a href="dashboard.html">
+            📊 Dashboard
+        </a>
 
-<a href="login.html">
-Login
-</a>
+        <a href="complaint.html">
+            📝 Complaint
+        </a>
 
-<a href="register.html">
-Register
-</a>
+        <a href="track.html">
+            🔎 Track
+        </a>
 
-<a href="about.html">
-About
-</a>
+        <a href="contact.html">
+            📞 Contact
+        </a>
 
-<a href="contact.html">
-Contact
-</a>
-
-</nav>
-
+    </nav>
 
 </header>
 
 
+<!-- ================= HERO ================= -->
 
+<section class="contact-hero">
 
+    <h1>
+        📞 Contact WaterGuardian-X
+    </h1>
 
-
-<section class="contact-section">
-
-
-<div class="contact-card">
-
-
-<h1>
-📞 Contact Us
-</h1>
-
-
-<p>
-Have questions or water related issues?
-Reach out to WaterGuardian-X team.
-</p>
-
-
-
-<form>
-
-
-<label>
-Name
-</label>
-
-
-<input 
-type="text"
-placeholder="Enter your name">
-
-
-
-<label>
-Email
-</label>
-
-
-<input
-type="email"
-placeholder="Enter your email">
-
-
-
-
-
-<label>
-Message
-</label>
-
-
-<textarea
-placeholder="Write your message">
-</textarea>
-
-
-
-
-
-<button type="submit">
-
-Send Message
-
-</button>
-
-
-
-</form>
-
-
-
-<div class="contact-info">
-
-
-<h3>
-WaterGuardian-X Support
-</h3>
-
-
-<p>
-📍 Smart Water Management Department
-</p>
-
-
-<p>
-📧 support@waterguardianx.com
-</p>
-
-
-<p>
-☎️ +91 90000 00000
-</p>
-
-
-</div>
-
-
-
-</div>
-
+    <p>
+        We're here to help with your water-related concerns.
+    </p>
 
 </section>
 
 
+<!-- ================= CONTACT SECTION ================= -->
+
+<section class="contact-section">
 
 
+    <!-- CONTACT FORM -->
+
+    <div class="contact-card">
+
+        <h2>
+            ✉️ Send Us a Message
+        </h2>
+
+        <p>
+            Have a question or need assistance?
+            Send a message to the WaterGuardian-X team.
+        </p>
 
 
+        <form id="contactForm">
+
+
+            <div class="form-group">
+
+                <label for="contactName">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="contactName"
+                    placeholder="Enter your name"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="contactEmail">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="contactEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="contactPhone">
+                    Mobile Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="contactPhone"
+                    placeholder="Enter mobile number"
+                    maxlength="10"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="contactMessage">
+                    Message
+                </label>
+
+                <textarea
+                    id="contactMessage"
+                    placeholder="Write your message here..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="send-btn"
+            >
+                📤 Send Message
+            </button>
+
+
+            <div id="message"></div>
+
+        </form>
+
+    </div>
+
+
+    <!-- CONTACT INFORMATION -->
+
+    <div class="contact-card">
+
+        <h2>
+            🏢 WaterGuardian-X Support
+        </h2>
+
+        <p>
+            Contact our Smart Water Management support
+            team for assistance with complaints,
+            accounts and portal-related questions.
+        </p>
+
+
+        <div class="info-list">
+
+
+            <div class="info-item">
+
+                <div class="info-icon">
+                    📍
+                </div>
+
+                <div>
+
+                    <h3>
+                        Office
+                    </h3>
+
+                    <p>
+                        Smart Water Management Department<br>
+                        Government Digital Water Initiative
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <div class="info-icon">
+                    📧
+                </div>
+
+                <div>
+
+                    <h3>
+                        Email
+                    </h3>
+
+                    <p>
+                        support@waterguardianx.com
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <div class="info-icon">
+                    ☎️
+                </div>
+
+                <div>
+
+                    <h3>
+                        Helpline
+                    </h3>
+
+                    <p>
+                        +91 90000 00000
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <div class="info-icon">
+                    🕘
+                </div>
+
+                <div>
+
+                    <h3>
+                        Support Hours
+                    </h3>
+
+                    <p>
+                        Monday – Saturday<br>
+                        9:00 AM – 6:00 PM
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- QUICK LINKS -->
+
+        <div class="quick-links">
+
+            <h3>
+                🔗 Quick Links
+            </h3>
+
+            <a href="complaint.html">
+                Register Complaint
+            </a>
+
+            <a href="track.html">
+                Track Complaint
+            </a>
+
+            <a href="dashboard.html">
+                Citizen Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
-<p>
-© 2026 WaterGuardian-X
-<br>
-Smart Water Crisis Management System
-</p>
+    <h3>
+        💧 WaterGuardian-X
+    </h3>
 
+    <p>
+        Smart Water Complaint Management System
+    </p>
+
+    <p>
+        Government Digital Water Initiative
+    </p>
+
+    <p>
+        © 2026 WaterGuardian-X | All Rights Reserved
+    </p>
 
 </footer>
 
 
+<!-- ================= CONTACT SCRIPT ================= -->
+
+<script>
+
+document.getElementById(
+    "contactForm"
+).addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
 
 
+        const name =
+            document.getElementById(
+                "contactName"
+            ).value.trim();
+
+
+        const email =
+            document.getElementById(
+                "contactEmail"
+            ).value.trim();
+
+
+        const message =
+            document.getElementById(
+                "contactMessage"
+            ).value.trim();
+
+
+        const result =
+            document.getElementById(
+                "message"
+            );
+
+
+        if (!name || !email || !message) {
+
+            result.textContent =
+                "❌ Please fill in all required fields.";
+
+            result.style.color =
+                "#dc2626";
+
+            return;
+        }
+
+
+        result.textContent =
+            "✅ Thank you! Your message has been received.";
+
+        result.style.color =
+            "#15803d";
+
+
+        document.getElementById(
+            "contactForm"
+        ).reset();
+
+    }
+);
+
+</script>
 
 
 <script src="js/theme.js"></script>

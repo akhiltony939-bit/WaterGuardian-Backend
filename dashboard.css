@@ -1,0 +1,1209 @@
+/* ==========================================
+   WaterGuardian-X Citizen Dashboard CSS
+   Professional Government Portal UI
+========================================== */
+
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+
+}
+
+
+
+body{
+
+
+    min-height:100vh;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #e3f2fd,
+        #ffffff
+    );
+
+
+}
+
+
+
+/* ================= DASHBOARD ================= */
+
+
+.dashboard{
+
+
+    width:100%;
+
+
+}
+
+
+
+
+
+
+/* ================= HEADER ================= */
+
+
+.dashboard-header{
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    padding:20px 8%;
+
+
+    background:white;
+
+
+    box-shadow:
+
+    0 5px 20px rgba(0,0,0,.1);
+
+
+    position:sticky;
+
+
+    top:0;
+
+
+    z-index:100;
+
+
+}
+
+
+
+
+.logo{
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:15px;
+
+
+}
+
+
+
+.logo img{
+
+
+    width:60px;
+
+
+    height:60px;
+
+
+}
+
+
+
+.logo h2{
+
+
+    color:#0052cc;
+
+
+}
+
+
+
+.logo p{
+
+
+    font-size:13px;
+
+
+    color:#666;
+
+
+}
+
+
+
+
+
+.header-actions{
+
+
+    display:flex;
+
+
+    gap:15px;
+
+
+}
+
+
+
+
+
+.notification-btn{
+
+
+    width:45px;
+
+
+    height:45px;
+
+
+    border:none;
+
+
+    border-radius:50%;
+
+
+    background:#e3f2fd;
+
+
+    font-size:20px;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+
+.logout-btn{
+
+
+    padding:12px 25px;
+
+
+    border:none;
+
+
+    border-radius:30px;
+
+
+    background:#dc3545;
+
+
+    color:white;
+
+
+    font-weight:600;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+
+
+
+/* ================= WELCOME ================= */
+
+
+
+.welcome-card{
+
+
+    margin:40px 8%;
+
+
+    padding:40px;
+
+
+    border-radius:25px;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #0066ff,
+        #00bcd4
+    );
+
+
+    color:white;
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+}
+
+
+
+.welcome-card h1{
+
+
+    font-size:38px;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+.welcome-card p{
+
+
+    font-size:18px;
+
+
+}
+
+
+
+.citizen-icon{
+
+
+    font-size:100px;
+
+
+}
+
+
+
+
+
+
+/* ================= PROFILE ================= */
+
+
+
+.profile-card{
+
+
+    margin:30px 8%;
+
+
+    background:white;
+
+
+    padding:30px;
+
+
+    border-radius:20px;
+
+
+    box-shadow:
+
+    0 10px 25px rgba(0,0,0,.1);
+
+
+}
+
+
+
+.profile-card h2{
+
+
+    color:#0052cc;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+.profile-details p{
+
+
+    margin:12px 0;
+
+
+    color:#555;
+
+
+}
+
+
+
+
+
+
+/* ================= STATS ================= */
+
+
+.stats{
+
+
+    display:grid;
+
+
+    grid-template-columns:repeat(3,1fr);
+
+
+    gap:25px;
+
+
+    margin:40px 8%;
+
+
+}
+
+
+
+
+
+.stat-card{
+
+
+    background:white;
+
+
+    padding:30px;
+
+
+    text-align:center;
+
+
+    border-radius:20px;
+
+
+    box-shadow:
+
+    0 10px 25px rgba(0,0,0,.1);
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.stat-card:hover{
+
+
+    transform:translateY(-8px);
+
+
+}
+
+
+
+.stat-card .icon{
+
+
+    font-size:35px;
+
+
+}
+
+
+
+.stat-card h2{
+
+
+    color:#0066ff;
+
+
+    font-size:40px;
+
+
+    margin:10px;
+
+
+}
+
+
+
+
+
+/* ================= TRACK ================= */
+
+
+
+.track-section{
+
+
+    margin:40px 8%;
+
+
+    padding:35px;
+
+
+    background:white;
+
+
+    border-radius:20px;
+
+
+    box-shadow:
+
+    0 10px 25px rgba(0,0,0,.1);
+
+
+}
+
+
+
+.track-section h2{
+
+
+    color:#0052cc;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+
+.track-box{
+
+
+    display:flex;
+
+
+    gap:15px;
+
+
+}
+
+
+
+.track-box input{
+
+
+    flex:1;
+
+
+    padding:15px;
+
+
+    border-radius:12px;
+
+
+    border:1px solid #ccc;
+
+
+}
+
+
+
+.track-box button{
+
+
+    padding:15px 30px;
+
+
+    border:none;
+
+
+    border-radius:12px;
+
+
+    background:#0066ff;
+
+
+    color:white;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+
+
+
+/* ================= ACTIONS ================= */
+
+
+
+.actions{
+
+
+    margin:40px 8%;
+
+
+}
+
+
+
+
+.actions h2{
+
+
+    color:#0052cc;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+.action-grid{
+
+
+    display:grid;
+
+
+    grid-template-columns:repeat(4,1fr);
+
+
+    gap:20px;
+
+
+}
+
+
+
+
+
+.action-card{
+
+
+    background:white;
+
+
+    padding:30px;
+
+
+    text-align:center;
+
+
+    text-decoration:none;
+
+
+    color:#333;
+
+
+    border-radius:20px;
+
+
+    box-shadow:
+
+    0 10px 25px rgba(0,0,0,.1);
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.action-card:hover{
+
+
+    transform:translateY(-10px);
+
+
+    background:#0066ff;
+
+
+    color:white;
+
+
+}
+
+
+
+.action-card div{
+
+
+    font-size:45px;
+
+
+}
+
+
+
+
+/* ================= TABLE ================= */
+
+
+
+.recent{
+
+
+    margin:40px 8%;
+
+
+}
+
+
+
+.recent h2{
+
+
+    color:#0052cc;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+table{
+
+
+    width:100%;
+
+
+    border-collapse:collapse;
+
+
+    background:white;
+
+
+    border-radius:15px;
+
+
+    overflow:hidden;
+
+
+}
+
+
+
+
+th{
+
+
+    background:#0066ff;
+
+
+    color:white;
+
+
+    padding:15px;
+
+
+}
+
+
+
+td{
+
+
+    padding:15px;
+
+
+    text-align:center;
+
+
+    border-bottom:1px solid #eee;
+
+
+}
+
+
+
+
+/* ================= FOOTER ================= */
+
+
+
+footer{
+
+
+    margin-top:50px;
+
+
+    padding:30px;
+
+
+    background:#0052cc;
+
+
+    color:white;
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+
+
+/* ================= RESPONSIVE ================= */
+
+
+@media(max-width:900px){
+
+
+.dashboard-header{
+
+
+    flex-direction:column;
+
+
+    gap:20px;
+
+
+}
+
+
+
+.stats{
+
+
+    grid-template-columns:1fr;
+
+
+}
+
+
+
+.action-grid{
+
+
+    grid-template-columns:repeat(2,1fr);
+
+
+}
+
+
+
+.welcome-card{
+
+
+    flex-direction:column;
+
+
+    text-align:center;
+
+
+}
+
+
+}
+
+
+
+
+@media(max-width:500px){
+
+
+
+.action-grid{
+
+
+    grid-template-columns:1fr;
+
+
+}
+
+
+
+.track-box{
+
+
+    flex-direction:column;
+
+
+}
+
+
+
+.welcome-card h1{
+
+
+    font-size:28px;
+
+
+}
+
+
+
+}
+.notification-btn{
+
+position:relative;
+
+font-size:22px;
+
+}
+
+
+#notificationCount{
+
+position:absolute;
+
+top:-8px;
+
+right:-8px;
+
+background:red;
+
+color:white;
+
+border-radius:50%;
+
+padding:3px 7px;
+
+font-size:12px;
+
+}
+/* ===============================
+   COMPLAINT TIMELINE
+================================ */
+
+
+.timeline-box{
+
+margin-top:25px;
+
+padding:20px;
+
+background:white;
+
+border-radius:20px;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.12);
+
+}
+
+
+
+.timeline-step{
+
+display:flex;
+
+gap:20px;
+
+position:relative;
+
+margin-bottom:25px;
+
+}
+
+
+
+.timeline-step:not(:last-child)::after{
+
+content:"";
+
+position:absolute;
+
+left:17px;
+
+top:38px;
+
+height:40px;
+
+width:3px;
+
+background:#00b4d8;
+
+}
+
+
+
+.timeline-circle{
+
+width:35px;
+
+height:35px;
+
+border-radius:50%;
+
+background:#00b4d8;
+
+color:white;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-weight:bold;
+
+box-shadow:
+0 0 15px #00b4d8;
+
+}
+
+
+
+.timeline-content h4{
+
+margin:0;
+
+color:#0077b6;
+
+}
+
+
+
+.timeline-content p{
+
+font-size:13px;
+
+color:gray;
+
+}
+
+
+
+.complaint-card{
+
+background:white;
+
+padding:25px;
+
+margin:20px;
+
+border-radius:25px;
+
+box-shadow:
+0 15px 40px rgba(0,0,0,.15);
+
+animation:
+slideUp .6s;
+
+}
+
+
+
+.complaint-image{
+
+width:200px;
+
+height:130px;
+
+object-fit:cover;
+
+border-radius:15px;
+
+}
+
+
+
+.status{
+
+padding:6px 15px;
+
+border-radius:20px;
+
+background:#00b4d8;
+
+color:white;
+
+}
+
+
+
+
+@keyframes slideUp{
+
+
+from{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+}
+/* ==========================================
+   SMART WATER SENSOR MONITORING
+========================================== */
+
+.sensor-section {
+    margin-top: 30px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    margin-bottom: 5px;
+}
+
+.section-header p {
+    margin: 0;
+    opacity: 0.7;
+}
+
+.refresh-btn {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.sensor-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(280px, 1fr)
+    );
+    gap: 20px;
+}
+
+.sensor-card {
+    padding: 20px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.sensor-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.sensor-card-header h3 {
+    margin: 0;
+}
+
+.sensor-card-header p {
+    margin: 5px 0 0;
+    opacity: 0.6;
+}
+
+.sensor-status {
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.sensor-status.normal {
+    background: #d9fbe5;
+}
+
+.sensor-status.warning {
+    background: #fff3cd;
+}
+
+.sensor-status.critical {
+    background: #ffd6d6;
+}
+
+.sensor-status.offline {
+    background: #e5e5e5;
+}
+
+.sensor-location {
+    margin: 15px 0;
+    opacity: 0.75;
+}
+
+.sensor-values {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.sensor-value {
+    padding: 12px;
+    border-radius: 12px;
+    background: rgba(0, 119, 182, 0.06);
+    text-align: center;
+}
+
+.sensor-value span {
+    display: block;
+    font-size: 22px;
+}
+
+.sensor-value strong {
+    display: block;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.sensor-value small {
+    opacity: 0.65;
+}
+
+.sensor-updated {
+    margin-top: 15px;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.sensor-loading {
+    text-align: center;
+    padding: 30px;
+    border-radius: 15px;
+    background: rgba(0, 119, 182, 0.05);
+}
+
+@media (max-width: 600px) {
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .sensor-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

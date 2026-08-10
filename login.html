@@ -26,38 +26,166 @@ WaterGuardian-X | Citizen Login
 </head>
 
 
-
 <body>
 
 
-<!-- Loader -->
+<!-- ================= Loader ================= -->
 
 <div id="loader">
 
+
 <div class="loader-content">
+
 
 <div class="water-drop">
 💧
 </div>
 
+
 <h1>
 WaterGuardian-X
 </h1>
 
+
 <p>
-Citizen Portal Login
+Citizen Login Portal
 </p>
 
-</div>
 
 </div>
 
 
+</div>
 
 
+
+
+
+<!-- ================= Login Hero ================= -->
+
+
+<section class="login-hero">
+
+
+<div class="hero-content">
+
+
+<div class="gov-badge">
+
+🇮🇳 Government Digital Initiative
+
+</div>
+
+
+
+<h1>
+
+Welcome to
+
+<span>
+WaterGuardian-X
+</span>
+
+</h1>
+
+
+
+
+<p>
+
+Smart Water Crisis Management System
+for citizens to report, track and solve
+water-related problems.
+
+</p>
+
+
+
+
+
+<div class="hero-features">
+
+
+<div class="feature-item">
+
+🚰
+
+Report Water Issues
+
+</div>
+
+
+
+<div class="feature-item">
+
+📍
+
+Track Complaints
+
+</div>
+
+
+
+
+<div class="feature-item">
+
+📊
+
+Smart Monitoring
+
+</div>
+
+
+
+
+<div class="feature-item">
+
+🔒
+
+Secure Portal
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="hero-animation">
+
+
+<div class="water-circle">
+
+💧
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ================= Login Container ================= -->
 
 
 <div class="login-container">
+
 
 
 <div class="login-card">
@@ -69,15 +197,30 @@ class="login-logo">
 
 
 
+
+
 <h1>
-💧 WaterGuardian-X
+
+Citizen Login
+
 </h1>
 
 
-<p>
-Citizen Smart Water Portal
-</p>
 
+<h2>
+
+💧 WaterGuardian-X
+
+</h2>
+
+
+
+
+<p>
+
+Access your citizen dashboard securely.
+
+</p>
 
 
 
@@ -87,15 +230,25 @@ Citizen Smart Water Portal
 
 
 
+
+
 <label>
-Email
+
+Email Address
+
 </label>
 
 
+
+
 <input
+
 type="email"
+
 id="email"
-placeholder="Enter email"
+
+placeholder="Enter your email"
+
 required>
 
 
@@ -103,26 +256,38 @@ required>
 
 
 
-
 <label>
+
 Password
+
 </label>
+
+
 
 
 
 <div class="password-box">
 
 
+
 <input
+
 type="password"
+
 id="password"
+
 placeholder="Enter password"
+
 required>
 
 
 
+
+
 <button
+
 type="button"
+
 id="showPassword">
 
 👁️
@@ -135,22 +300,30 @@ id="showPassword">
 
 
 
-
-
-
-
-
-<div class="remember">
-
-
-<input
-type="checkbox"
-id="remember">
+<div class="remember-row">
 
 
 <label>
-Remember me
+
+<input
+
+type="checkbox"
+
+id="remember">
+
+
+Remember Me
+
+
 </label>
+
+
+
+<a href="#">
+
+Forgot Password?
+
+</a>
 
 
 </div>
@@ -161,12 +334,14 @@ Remember me
 
 
 
+<button type="submit" class="login-btn">
 
-<button type="submit">
 
-Login
+🔐 Login
+
 
 </button>
+
 
 
 
@@ -180,9 +355,14 @@ Login
 
 
 
+
+
+<div class="register-box">
+
+
 <p>
 
-New citizen?
+Don't have an account?
 
 <a href="register.html">
 
@@ -190,17 +370,32 @@ Create Account
 
 </a>
 
+
 </p>
 
 
 
+</div>
+
+
+
+
+
+
+
+
+<div class="home-link">
 
 
 <a href="index.html">
 
-⬅ Back Home
+🏠 Back To Home
 
 </a>
+
+
+</div>
+
 
 
 
@@ -209,14 +404,20 @@ Create Account
 
 
 
-</div>
-
 
 </div>
 
 
+</div>
 
 
+
+
+
+
+
+
+<!-- ================= Scripts ================= -->
 
 
 <script src="js/login.js"></script>
@@ -224,6 +425,76 @@ Create Account
 <script src="js/theme.js"></script>
 
 <script src="js/loading.js"></script>
+
+
+
+
+
+<script>
+
+
+// Show / Hide Password
+
+
+const passwordInput =
+
+document.getElementById("password");
+
+
+
+const showPasswordBtn =
+
+document.getElementById("showPassword");
+
+
+
+
+showPasswordBtn.addEventListener(
+
+"click",
+
+()=>{
+
+
+if(passwordInput.type==="password"){
+
+
+passwordInput.type="text";
+
+
+showPasswordBtn.innerHTML="🙈";
+
+
+}
+
+
+else{
+
+
+passwordInput.type="password";
+
+
+showPasswordBtn.innerHTML="👁️";
+
+
+}
+
+
+
+}
+
+
+);
+
+
+
+
+
+</script>
+
+
+
+
 
 
 </body>

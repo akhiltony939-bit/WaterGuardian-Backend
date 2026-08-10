@@ -3,22 +3,326 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
+    <title>WaterGuardian-X | Citizen Profile</title>
 
-<title>
-WaterGuardian-X | Citizen Profile
-</title>
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/loading.css">
 
+    <style>
 
-<link rel="stylesheet" href="css/theme.css">
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-<link rel="stylesheet" href="css/loading.css">
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            background:
+                linear-gradient(
+                    135deg,
+                    #eaf6ff,
+                    #d8f3ff,
+                    #f5fbff
+                );
+        }
 
-<link rel="stylesheet" href="css/style.css">
+        /* ================= HEADER ================= */
 
+        header {
+            width: 100%;
+            padding: 18px 7%;
+            background: #0b6ef3;
+            color: white;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        header h2 {
+            font-size: 24px;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.75;
+            transform: translateY(-2px);
+        }
+
+        /* ================= PROFILE ================= */
+
+        .profile-section {
+            min-height: calc(100vh - 80px);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 50px 20px;
+        }
+
+        .profile-card {
+
+            width: 100%;
+            max-width: 600px;
+
+            background: rgba(255,255,255,0.95);
+
+            border-radius: 25px;
+
+            padding: 40px;
+
+            text-align: center;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.15);
+
+            border: 1px solid rgba(255,255,255,0.8);
+        }
+
+        /* ================= ICON ================= */
+
+        .profile-icon {
+
+            width: 110px;
+            height: 110px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0b6ef3,
+                    #00a8ff
+                );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 55px;
+
+            box-shadow:
+                0 10px 25px rgba(11,110,243,0.3);
+        }
+
+        .profile-card h1 {
+
+            color: #123;
+
+            margin-bottom: 30px;
+
+            font-size: 30px;
+        }
+
+        /* ================= DETAILS ================= */
+
+        .profile-details {
+
+            text-align: left;
+
+            background: #f5faff;
+
+            border-radius: 18px;
+
+            padding: 10px 25px;
+
+            margin-bottom: 30px;
+        }
+
+        .profile-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
+            padding: 18px 5px;
+
+            border-bottom:
+                1px solid #dceaf5;
+        }
+
+        .profile-row:last-child {
+            border-bottom: none;
+        }
+
+        .profile-label {
+
+            color: #557;
+
+            font-weight: 600;
+        }
+
+        .profile-value {
+
+            color: #123;
+
+            font-weight: 600;
+
+            text-align: right;
+
+            word-break: break-word;
+        }
+
+        /* ================= BUTTON ================= */
+
+        .logout-btn {
+
+            border: none;
+
+            width: 100%;
+
+            padding: 14px;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ef4444,
+                    #dc2626
+                );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            margin-bottom: 15px;
+        }
+
+        .logout-btn:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 20px rgba(220,38,38,0.25);
+        }
+
+        .back-btn {
+
+            display: block;
+
+            width: 100%;
+
+            padding: 14px;
+
+            border-radius: 12px;
+
+            background: #0b6ef3;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+
+            transform: translateY(-2px);
+
+            background: #095dcc;
+        }
+
+        /* ================= STATUS ================= */
+
+        .status {
+
+            display: inline-block;
+
+            padding: 6px 14px;
+
+            border-radius: 20px;
+
+            background: #dcfce7;
+
+            color: #15803d;
+
+            font-size: 13px;
+
+            font-weight: bold;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            header {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+                text-align: center;
+            }
+
+            nav {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 15px;
+            }
+
+            .profile-card {
+
+                padding: 25px 18px;
+            }
+
+            .profile-row {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 6px;
+            }
+
+            .profile-value {
+
+                text-align: left;
+            }
+        }
+
+    </style>
 
 </head>
 
@@ -26,249 +330,377 @@ WaterGuardian-X | Citizen Profile
 <body>
 
 
-<!-- Loader -->
+<!-- ================= LOADER ================= -->
 
 <div id="loader">
 
-<div class="loader-content">
+    <div class="loader-content">
 
-<div class="water-drop">
-💧
+        <div class="water-drop">
+            💧
+        </div>
+
+        <h1>
+            WaterGuardian-X
+        </h1>
+
+        <p>
+            Citizen Profile
+        </p>
+
+    </div>
+
 </div>
 
-<h1>
-WaterGuardian-X
-</h1>
-
-<p>
-Citizen Profile
-</p>
-
-</div>
-
-</div>
 
 
-
-
-
-
-<!-- Header -->
+<!-- ================= HEADER ================= -->
 
 <header>
 
-<h2>
-💧 WaterGuardian-X
-</h2>
+    <h2>
+        💧 WaterGuardian-X
+    </h2>
 
+    <nav>
 
-<nav>
+        <a href="dashboard.html">
+            📊 Dashboard
+        </a>
 
-<a href="dashboard.html">
-Dashboard
-</a>
+        <a href="complaint.html">
+            📝 Complaint
+        </a>
 
+        <a href="profile.html">
+            👤 Profile
+        </a>
 
-<a href="complaint.html">
-Complaint
-</a>
+        <a href="index.html" onclick="logout()">
+            🚪 Logout
+        </a>
 
-
-<a href="profile.html">
-Profile
-</a>
-
-
-<a href="index.html">
-Logout
-</a>
-
-
-</nav>
-
+    </nav>
 
 </header>
 
 
 
-
-
-
+<!-- ================= PROFILE ================= -->
 
 <section class="profile-section">
 
+    <div class="profile-card">
 
-<div class="profile-card">
+        <div class="profile-icon">
+            👤
+        </div>
 
-
-
-<div class="profile-icon">
-
-👤
-
-</div>
-
+        <h1>
+            Citizen Profile
+        </h1>
 
 
-<h1>
-Citizen Profile
-</h1>
+        <div class="profile-details">
 
 
+            <div class="profile-row">
 
-<div class="profile-details">
+                <span class="profile-label">
+                    👤 Name
+                </span>
 
+                <span
+                    class="profile-value"
+                    id="profileName"
+                >
+                    Loading...
+                </span>
 
-<p>
-
-<strong>
-Name:
-</strong>
-
-<span id="profileName">
-Citizen
-</span>
-
-</p>
+            </div>
 
 
 
+            <div class="profile-row">
 
+                <span class="profile-label">
+                    📧 Email
+                </span>
 
-<p>
+                <span
+                    class="profile-value"
+                    id="profileEmail"
+                >
+                    Loading...
+                </span>
 
-<strong>
-Email:
-</strong>
-
-<span id="profileEmail">
-user@email.com
-</span>
-
-</p>
-
-
-
-
-
-
-<p>
-
-<strong>
-Role:
-</strong>
-
-Citizen User
-
-</p>
+            </div>
 
 
 
+            <div class="profile-row">
 
+                <span class="profile-label">
+                    📱 Mobile
+                </span>
 
-<p>
+                <span
+                    class="profile-value"
+                    id="profilePhone"
+                >
+                    Not Available
+                </span>
 
-<strong>
-Portal:
-</strong>
-
-WaterGuardian-X Smart Water System
-
-</p>
-
-
-
-</div>
-
-
+            </div>
 
 
 
-<button onclick="logout()">
+            <div class="profile-row">
 
-🚪 Logout
+                <span class="profile-label">
+                    👨‍💼 Role
+                </span>
 
-</button>
+                <span
+                    class="profile-value"
+                    id="profileRole"
+                >
+                    Citizen
+                </span>
+
+            </div>
 
 
 
-<a href="dashboard.html">
+            <div class="profile-row">
 
-⬅ Back to Dashboard
+                <span class="profile-label">
+                    🌊 Portal
+                </span>
 
-</a>
+                <span class="profile-value">
+                    WaterGuardian-X
+                </span>
+
+            </div>
 
 
 
-</div>
+            <div class="profile-row">
 
+                <span class="profile-label">
+                    🟢 Account Status
+                </span>
+
+                <span class="status">
+                    Active
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <button
+            class="logout-btn"
+            onclick="logout()"
+        >
+            🚪 Logout
+        </button>
+
+
+        <a
+            href="dashboard.html"
+            class="back-btn"
+        >
+            ⬅ Back to Dashboard
+        </a>
+
+    </div>
 
 </section>
 
 
 
-
-
+<!-- ================= SCRIPT ================= -->
 
 <script>
 
-
 document.addEventListener(
-"DOMContentLoaded",
-()=>{
+    "DOMContentLoaded",
+    function() {
+
+        console.log(
+            "👤 Profile page loaded"
+        );
 
 
-let user =
+        /*
+         * Try both storage names.
+         *
+         * Some versions of the login code use:
+         * waterUser
+         *
+         * Other versions use:
+         * user
+         */
 
-JSON.parse(
-localStorage.getItem("waterUser")
+        let user = null;
+
+
+        const waterUser =
+            localStorage.getItem(
+                "waterUser"
+            );
+
+
+        const normalUser =
+            localStorage.getItem(
+                "user"
+            );
+
+
+        try {
+
+            if (waterUser) {
+
+                user =
+                    JSON.parse(
+                        waterUser
+                    );
+
+            }
+
+            else if (normalUser) {
+
+                user =
+                    JSON.parse(
+                        normalUser
+                    );
+
+            }
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Profile user data error:",
+                error
+            );
+
+        }
+
+
+        console.log(
+            "👤 User:",
+            user
+        );
+
+
+        /*
+         * Display user
+         */
+
+        if (user) {
+
+
+            document.getElementById(
+                "profileName"
+            ).textContent =
+                user.name ||
+                "Citizen";
+
+
+            document.getElementById(
+                "profileEmail"
+            ).textContent =
+                user.email ||
+                "Not Available";
+
+
+            document.getElementById(
+                "profilePhone"
+            ).textContent =
+                user.phone ||
+                user.mobile ||
+                "Not Available";
+
+
+            document.getElementById(
+                "profileRole"
+            ).textContent =
+                user.role ||
+                "Citizen";
+
+
+        }
+
+        else {
+
+
+            /*
+             * No stored user
+             */
+
+            document.getElementById(
+                "profileName"
+            ).textContent =
+                "Citizen";
+
+
+            document.getElementById(
+                "profileEmail"
+            ).textContent =
+                "Not Available";
+
+
+            document.getElementById(
+                "profilePhone"
+            ).textContent =
+                "Not Available";
+
+
+            console.warn(
+                "⚠️ No user found in localStorage"
+            );
+
+        }
+
+    }
 );
 
 
 
-if(user){
+/* ================= LOGOUT ================= */
+
+function logout() {
+
+    localStorage.removeItem(
+        "waterUser"
+    );
+
+    localStorage.removeItem(
+        "user"
+    );
+
+    localStorage.removeItem(
+        "userId"
+    );
+
+    localStorage.removeItem(
+        "token"
+    );
 
 
-document.getElementById(
-"profileName"
-).innerHTML =
-user.name;
-
-
-
-document.getElementById(
-"profileEmail"
-).innerHTML =
-user.email;
-
-
-}
-
-
-});
-
-
-
-
-
-function logout(){
-
-
-localStorage.removeItem(
-"waterUser"
-);
-
-
-window.location.href=
-"index.html";
-
+    window.location.href =
+        "index.html";
 
 }
-
 
 </script>
-
-
 
 
 

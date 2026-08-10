@@ -3,529 +3,1532 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-
-<title>
-WaterGuardian-X | Admin Portal
-</title>
-
-
-<link rel="icon" href="images/logo.png">
+    <title>WaterGuardian-X | Admin Dashboard</title>
 
 
-<link rel="stylesheet" href="css/theme.css">
+    <!-- ==================================================
+         LEAFLET CSS
+    ================================================== -->
 
-<link rel="stylesheet" href="css/loading.css">
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
 
-<link rel="stylesheet" href="css/admin.css">
 
+    <!-- ==================================================
+         ADMIN CSS
+    ================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="admin.css"
+    >
+
+
+    <style>
+
+        /* ==================================================
+           BASIC ADMIN LAYOUT
+        ================================================== */
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f8fb;
+            color: #222;
+        }
+
+        body.dark {
+            background: #111827;
+            color: #f5f5f5;
+        }
+
+        .dashboard-container {
+            width: 95%;
+            max-width: 1500px;
+            margin: auto;
+            padding: 20px;
+        }
+
+
+        /* ==================================================
+           HEADER
+        ================================================== */
+
+        .admin-header {
+            background: linear-gradient(
+                135deg,
+                #0066cc,
+                #00a8e8
+            );
+
+            color: white;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            margin-bottom: 25px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 15px;
+        }
+
+        .admin-header h1 {
+            margin: 0;
+        }
+
+        .admin-header p {
+            margin: 5px 0 0;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .refresh-btn {
+            background: #0066cc;
+            color: white;
+        }
+
+        .dark-btn {
+            background: #222;
+            color: white;
+        }
+
+        .logout-btn {
+            background: #d32f2f;
+            color: white;
+        }
+
+
+        /* ==================================================
+           SECTION
+        ================================================== */
+
+        .dashboard-section {
+            background: white;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 5px 20px rgba(
+                    0,
+                    0,
+                    0,
+                    0.08
+                );
+        }
+
+        body.dark .dashboard-section {
+            background: #1f2937;
+        }
+
+        .section-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 15px;
+
+            margin-bottom: 20px;
+        }
+
+        .section-header h2 {
+            margin: 0;
+        }
+
+
+        /* ==================================================
+           ANALYTICS GRID
+        ================================================== */
+
+        .analytics-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(
+                        180px,
+                        1fr
+                    )
+                );
+
+            gap: 15px;
+
+            margin-bottom: 20px;
+        }
+
+        .analytics-card {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eef7ff,
+                    #ffffff
+                );
+
+            border-radius: 12px;
+
+            padding: 18px;
+
+            text-align: center;
+
+            border: 1px solid #dbeafe;
+        }
+
+        body.dark .analytics-card {
+            background: #374151;
+            border-color: #4b5563;
+        }
+
+        .analytics-card h3 {
+            margin: 0 0 10px;
+            font-size: 15px;
+        }
+
+        .analytics-card p {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0;
+            color: #0066cc;
+        }
+
+
+        /* ==================================================
+           SENSOR CONTAINER
+        ================================================== */
+
+        .sensor-container {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(
+                        280px,
+                        1fr
+                    )
+                );
+
+            gap: 18px;
+
+            margin-top: 20px;
+        }
+
+
+        .sensor-card {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e8f7ff,
+                    #ffffff
+                );
+
+            border-radius: 15px;
+
+            padding: 20px;
+
+            border-left:
+                5px solid #00a8e8;
+
+            box-shadow:
+                0 4px 12px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.08
+                );
+        }
+
+        body.dark .sensor-card {
+            background: #374151;
+        }
+
+        .sensor-card-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 15px;
+        }
+
+        .sensor-card-header h3 {
+            margin: 0;
+        }
+
+        .sensor-status {
+
+            background: #16a34a;
+
+            color: white;
+
+            padding: 5px 10px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: bold;
+        }
+
+        .sensor-values {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    1fr
+                );
+
+            gap: 10px;
+
+            margin-top: 15px;
+        }
+
+        .sensor-values div {
+
+            background: rgba(
+                255,
+                255,
+                255,
+                0.7
+            );
+
+            padding: 10px;
+
+            border-radius: 8px;
+
+            text-align: center;
+        }
+
+        body.dark .sensor-values div {
+            background: #4b5563;
+        }
+
+        .sensor-values strong {
+            display: block;
+            font-size: 12px;
+        }
+
+        .sensor-values span {
+            display: block;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            margin-top: 5px;
+        }
+
+
+        /* ==================================================
+           ALERTS
+        ================================================== */
+
+        .safe-alert {
+
+            background: #dcfce7;
+
+            color: #166534;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            margin-top: 10px;
+        }
+
+        .danger-alert {
+
+            background: #fee2e2;
+
+            color: #991b1b;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            margin-top: 10px;
+        }
+
+
+        /* ==================================================
+           CHART GRID
+        ================================================== */
+
+        .charts-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(
+                        300px,
+                        1fr
+                    )
+                );
+
+            gap: 20px;
+
+            margin-top: 20px;
+        }
+
+        .chart-card {
+
+            background: white;
+
+            border-radius: 12px;
+
+            padding: 18px;
+
+            min-height: 300px;
+
+            box-shadow:
+                0 4px 15px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.06
+                );
+        }
+
+        body.dark .chart-card {
+            background: #374151;
+        }
+
+        .chart-card h3 {
+            margin-top: 0;
+        }
+
+        .chart-card canvas {
+            width: 100% !important;
+            max-height: 250px;
+        }
+
+
+        /* ==================================================
+           MAP
+        ================================================== */
+
+        #adminMap {
+
+            width: 100%;
+
+            height: 450px;
+
+            border-radius: 15px;
+
+            margin-top: 15px;
+        }
+
+        .map-status {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 20px;
+
+            margin: 15px 0;
+
+            font-weight: bold;
+        }
+
+
+        /* ==================================================
+           COMPLAINT TABLE
+        ================================================== */
+
+        .table-wrapper {
+
+            overflow-x: auto;
+
+            margin-top: 20px;
+        }
+
+        #complaintsTable {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 1000px;
+        }
+
+        #complaintsTable th {
+
+            background: #0066cc;
+
+            color: white;
+
+            padding: 12px;
+
+            text-align: left;
+        }
+
+        #complaintsTable td {
+
+            padding: 10px;
+
+            border-bottom:
+                1px solid #ddd;
+        }
+
+        body.dark #complaintsTable td {
+            border-color: #4b5563;
+        }
+
+        #complaintsTable button {
+
+            margin: 3px;
+
+            padding: 7px 10px;
+
+            font-size: 12px;
+        }
+
+
+        /* ==================================================
+           SEARCH
+        ================================================== */
+
+        #searchInput {
+
+            width: 100%;
+
+            max-width: 400px;
+
+            padding: 12px;
+
+            border:
+                1px solid #ccc;
+
+            border-radius: 8px;
+
+            margin-top: 10px;
+
+            box-sizing: border-box;
+        }
+
+
+        /* ==================================================
+           STATUS
+        ================================================== */
+
+        .status {
+
+            padding: 5px 10px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: bold;
+        }
+
+        .status.pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status.in-progress {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status.resolved {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+
+        /* ==================================================
+           AI
+        ================================================== */
+
+        .risk-box {
+
+            margin-top: 20px;
+
+            padding: 20px;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eef2ff,
+                    #e0f2fe
+                );
+
+            text-align: center;
+        }
+
+        .risk-box h2 {
+            font-size: 35px;
+            margin: 5px;
+        }
+
+
+        /* ==================================================
+           AI CHAT
+        ================================================== */
+
+        #aiChatBox {
+
+            position: fixed;
+
+            right: 25px;
+
+            bottom: 25px;
+
+            width: 330px;
+
+            max-width: calc(
+                100vw - 40px
+            );
+
+            background: white;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 10px 40px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.25
+                );
+
+            z-index: 9999;
+
+            overflow: hidden;
+        }
+
+        #aiChatBox h3 {
+
+            background: #0066cc;
+
+            color: white;
+
+            padding: 15px;
+
+            margin: 0;
+        }
+
+        #aiMessages {
+
+            height: 220px;
+
+            overflow-y: auto;
+
+            padding: 15px;
+        }
+
+        .user-message {
+
+            background: #dbeafe;
+
+            padding: 8px;
+
+            margin: 5px 0;
+
+            border-radius: 8px;
+
+            text-align: right;
+        }
+
+        .bot-message {
+
+            background: #f3f4f6;
+
+            padding: 8px;
+
+            margin: 5px 0;
+
+            border-radius: 8px;
+        }
+
+        #aiInput {
+
+            width: 70%;
+
+            padding: 10px;
+
+            box-sizing: border-box;
+        }
+
+
+        /* ==================================================
+           IMAGE MODAL
+        ================================================== */
+
+        #imageModal {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.8
+                );
+
+            align-items: center;
+
+            justify-content: center;
+
+            z-index: 10000;
+        }
+
+        #previewImg {
+
+            max-width: 90%;
+
+            max-height: 90%;
+
+            border-radius: 10px;
+        }
+
+
+        /* ==================================================
+           RESPONSIVE
+        ================================================== */
+
+        @media (
+            max-width: 700px
+        ) {
+
+            .dashboard-container {
+                width: 92%;
+                padding: 10px;
+            }
+
+            .sensor-values {
+                grid-template-columns:
+                    1fr;
+            }
+
+            #adminMap {
+                height: 350px;
+            }
+
+        }
+
+    </style>
 
 </head>
-
 
 
 <body>
 
 
-<!-- Loading Screen -->
+<!-- ======================================================
+     MAIN CONTAINER
+====================================================== -->
 
-<div id="loader">
+<div class="dashboard-container">
 
 
-<div class="loader-content">
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
+
+    <header class="admin-header">
+
+        <div>
+
+            <h1>
+                🚀 Government Admin Dashboard
+            </h1>
+
+            <p>
+                WaterGuardian-X
+                Smart Water Complaint Management System
+            </p>
+
+        </div>
 
 
-<div class="water-drop">
-💧
+        <div class="header-buttons">
+
+            <button
+                class="dark-btn"
+                onclick="toggleDarkMode()"
+            >
+                🌙 Dark Mode
+            </button>
+
+
+            <button
+                class="logout-btn"
+                onclick="logout()"
+            >
+                🚪 Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ==================================================
+         OVERALL ANALYTICS
+    ================================================== -->
+
+    <section class="dashboard-section">
+
+        <h2>
+            📊 Dashboard Overview
+        </h2>
+
+
+        <div class="analytics-grid">
+
+            <div class="analytics-card">
+
+                <h3>
+                    📋 Total Complaints
+                </h3>
+
+                <p id="totalCount">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="analytics-card">
+
+                <h3>
+                    🔴 Pending
+                </h3>
+
+                <p id="pendingCount">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="analytics-card">
+
+                <h3>
+                    🟠 In Progress
+                </h3>
+
+                <p id="progressCount">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="analytics-card">
+
+                <h3>
+                    🟢 Resolved
+                </h3>
+
+                <p id="resolvedCount">
+                    0
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         SENSOR MONITORING
+    ================================================== -->
+
+    <section class="dashboard-section">
+
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    💧 Live Water Sensor Monitoring
+                </h2>
+
+                <p>
+                    Real-time water quality and sensor information
+                </p>
+
+            </div>
+
+
+            <button
+                onclick="loadSensors()"
+                class="refresh-btn"
+            >
+                🔄 Refresh Sensors
+            </button>
+
+        </div>
+
+
+
+        <!-- SENSOR ANALYTICS -->
+
+        <div class="analytics-grid">
+
+
+            <div class="analytics-card">
+
+                <h3>
+                    💧 Total Sensors
+                </h3>
+
+                <p id="totalSensors">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="analytics-card">
+
+                <h3>
+                    🟢 Active Sensors
+                </h3>
+
+                <p id="activeSensors">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="analytics-card">
+
+                <h3>
+                    ⚗️ Average pH
+                </h3>
+
+                <p id="averagePH">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="analytics-card">
+
+                <h3>
+                    🌡️ Avg Temperature
+                </h3>
+
+                <p id="averageTemp">
+                    0°C
+                </p>
+
+            </div>
+
+
+            <div class="analytics-card">
+
+                <h3>
+                    💧 Avg Turbidity
+                </h3>
+
+                <p id="averageTurbidity">
+                    0
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CONNECTED SENSORS -->
+
+        <div>
+
+            <h2>
+                📡 Connected Sensors
+            </h2>
+
+
+            <div
+                id="sensorContainer"
+                class="sensor-container"
+            >
+
+                <p>
+                    🔄 Loading sensors...
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SENSOR ALERTS -->
+
+        <div style="margin-top: 25px;">
+
+            <h2>
+                🚨 Sensor Alerts
+            </h2>
+
+
+            <div id="alertContainer">
+
+                <p>
+                    Checking sensor status...
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SENSOR CHARTS -->
+
+        <div class="charts-grid">
+
+
+            <div class="chart-card">
+
+                <h3>
+                    ⚗️ pH Level Monitoring
+                </h3>
+
+                <canvas id="phChart"></canvas>
+
+            </div>
+
+
+            <div class="chart-card">
+
+                <h3>
+                    🌡️ Temperature Monitoring
+                </h3>
+
+                <canvas id="temperatureChart"></canvas>
+
+            </div>
+
+
+            <div class="chart-card">
+
+                <h3>
+                    💧 Turbidity Monitoring
+                </h3>
+
+                <canvas id="turbidityChart"></canvas>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         COMPLAINT MAP
+    ================================================== -->
+
+    <section class="dashboard-section">
+
+        <div class="section-header">
+
+            <h2>
+                🗺️ Live Complaint Map
+            </h2>
+
+
+            <button
+                class="refresh-btn"
+                onclick="loadComplaints()"
+            >
+                🔄 Refresh
+            </button>
+
+        </div>
+
+
+        <div class="map-status">
+
+            <span>
+                🔴 Pending :
+                <b id="mapPending">0</b>
+            </span>
+
+            <span>
+                🟠 Progress :
+                <b id="mapProgress">0</b>
+            </span>
+
+            <span>
+                🟢 Resolved :
+                <b id="mapResolved">0</b>
+            </span>
+
+        </div>
+
+
+        <div id="adminMap"></div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         COMPLAINT CHARTS
+    ================================================== -->
+
+    <section class="dashboard-section">
+
+        <h2>
+            📊 Complaint Analytics
+        </h2>
+
+
+        <div class="charts-grid">
+
+
+            <div class="chart-card">
+
+                <h3>
+                    📊 Complaint Status
+                </h3>
+
+                <canvas id="statusChart"></canvas>
+
+            </div>
+
+
+            <div class="chart-card">
+
+                <h3>
+                    📈 Monthly Trend
+                </h3>
+
+                <canvas id="trendChart"></canvas>
+
+            </div>
+
+
+            <div class="chart-card">
+
+                <h3>
+                    📍 Top Locations
+                </h3>
+
+                <canvas id="locationChart"></canvas>
+
+            </div>
+
+
+            <!-- AI ANALYSIS -->
+
+            <div class="chart-card">
+
+                <h3>
+                    🤖 WaterGuardian AI
+                </h3>
+
+
+                <div id="aiResult">
+
+                    <p>
+                        AI analysis will appear here...
+                    </p>
+
+                </div>
+
+
+                <div class="risk-box">
+
+                    <small>
+                        Risk Score
+                    </small>
+
+                    <h2 id="riskScore">
+                        0%
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         COMPLAINT MANAGEMENT
+    ================================================== -->
+
+    <section class="dashboard-section">
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    📋 Complaint Management
+                </h2>
+
+                <p>
+                    View, update and manage citizen complaints
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔎 Search complaints..."
+        >
+
+
+        <!-- TABLE -->
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            #
+                        </th>
+
+                        <th>
+                            Complaint ID
+                        </th>
+
+                        <th>
+                            Citizen
+                        </th>
+
+                        <th>
+                            Issue
+                        </th>
+
+                        <th>
+                            Location
+                        </th>
+
+                        <th>
+                            Date
+                        </th>
+
+                        <th>
+                            Image
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Officer
+                        </th>
+
+                        <th>
+                            Priority
+                        </th>
+
+                        <th>
+                            Actions
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="complaintsTable">
+
+                    <tr>
+
+                        <td
+                            colspan="11"
+                            style="text-align:center;"
+                        >
+                            🔄 Loading Complaints...
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         NOTIFICATIONS
+    ================================================== -->
+
+    <section class="dashboard-section">
+
+        <h2>
+            🔔 Notifications
+        </h2>
+
+
+        <div id="notificationContainer">
+
+            <p>
+                No new notifications.
+            </p>
+
+        </div>
+
+    </section>
+
+
 </div>
 
 
-<h1>
-WaterGuardian-X
-</h1>
 
+<!-- ======================================================
+     IMAGE PREVIEW MODAL
+====================================================== -->
 
-<p>
-Government Administration Portal
-</p>
+<div id="imageModal">
 
+    <div>
 
-</div>
+        <button
+            onclick="closePreview()"
+            style="
+                background:white;
+                color:black;
+                margin-bottom:10px;
+            "
+        >
+            ✖ Close
+        </button>
 
 
-</div>
+        <br>
 
 
+        <img
+            id="previewImg"
+            src=""
+            alt="Complaint Image"
+        >
 
-
-
-
-
-<div class="admin-layout">
-
-
-
-
-
-<!-- Sidebar -->
-
-
-<aside class="sidebar">
-
-
-<h2>
-💧 WaterGuardian-X
-</h2>
-
-
-<p class="admin-role">
-Administrator
-</p>
-
-
-
-
-
-<ul>
-
-
-<li onclick="openPage('admin.html')">
-
-🏠 Dashboard
-
-</li>
-
-
-
-<li onclick="document.getElementById('complaints').scrollIntoView({behavior:'smooth'})">
-
-📋 Complaints
-
-</li>
-
-
-
-
-<li onclick="openPage('map.html')">
-
-🗺️ Water Map
-
-</li>
-
-
-
-
-
-<li onclick="openPage('ai.html')">
-
-🤖 Aqua AI
-
-</li>
-
-
-
-
-
-<li onclick="openPage('dashboard.html')">
-
-👤 Citizen Portal
-
-</li>
-
-
-
-
-
-<li onclick="logout()">
-
-🚪 Logout
-
-</li>
-
-
-
-</ul>
-
-
-
-</aside>
-
-
-
-
-
-
-
-
-
-
-<!-- Main Content -->
-
-
-<main class="content">
-
-
-
-
-
-<!-- Top Bar -->
-
-
-<div class="topbar">
-
-
-<div>
-
-
-<h1>
-Admin Dashboard
-</h1>
-
-
-<p>
-Monitor and manage water complaints efficiently.
-</p>
-
+    </div>
 
 </div>
 
 
 
+<!-- ======================================================
+     AI CHAT
+====================================================== -->
 
-<div class="admin-date" id="currentDate">
+<div id="aiChatBox">
 
-</div>
+    <h3>
+        🤖 WaterGuardian AI
 
+        <button
+            onclick="closeAIChat()"
+            style="
+                float:right;
+                background:transparent;
+                color:white;
+                padding:0;
+            "
+        >
+            ✖
+        </button>
 
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- Statistics Cards -->
-
-
-<div class="cards">
-
-
-
-<div class="card">
+    </h3>
 
 
-<h2 id="total">
-0
-</h2>
+    <div id="aiMessages">
+
+        <div class="bot-message">
+
+            👋 Welcome Admin.
+
+            <br><br>
+
+            Ask me about:
+
+            <br>
+            • Complaints
+            <br>
+            • Water quality
+            <br>
+            • Sensor alerts
+            <br>
+            • Risk analysis
+
+        </div>
+
+    </div>
 
 
-<p>
-Total Complaints
-</p>
+    <div style="padding:10px;">
+
+        <input
+            type="text"
+            id="aiInput"
+            placeholder="Ask WaterGuardian AI..."
+        >
 
 
-</div>
+        <button
+            onclick="sendAIMessage()"
+            class="refresh-btn"
+        >
+            Send
+        </button>
 
-
-
-
-
-
-<div class="card">
-
-
-<h2 id="pending">
-0
-</h2>
-
-
-<p>
-Pending
-</p>
-
-
-</div>
-
-
-
-
-
-
-<div class="card">
-
-
-<h2 id="resolved">
-0
-</h2>
-
-
-<p>
-Resolved
-</p>
-
+    </div>
 
 </div>
 
 
 
-</div>
+<!-- ======================================================
+     FOOTER
+====================================================== -->
 
+<footer
+    style="
+        text-align:center;
+        padding:25px;
+        margin-top:20px;
+    "
+>
 
+    © 2026 WaterGuardian-X |
+    Smart Water Complaint Management System
 
+</footer>
 
 
 
+<!-- ======================================================
+     JAVASCRIPT LIBRARIES
+====================================================== -->
 
+<!-- Chart.js -->
 
+<script
+    src="https://cdn.jsdelivr.net/npm/chart.js"
+></script>
 
-<!-- Export Toolbar -->
 
+<!-- Leaflet -->
 
-<div class="toolbar">
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+></script>
 
 
+<!-- Leaflet Heatmap -->
 
-<input
+<script
+    src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"
+></script>
 
-type="text"
 
-id="searchComplaint"
+<!-- jsPDF -->
 
-placeholder="🔍 Search by ID, Name or Issue">
+<script
+    src="js/jspdf.umd.min.js"
+></script>
 
 
+<!-- ======================================================
+     ADMIN JAVASCRIPT
+====================================================== -->
 
-
-
-
-<div class="export-buttons">
-
-
-
-<button onclick="exportPDF()">
-
-📄 Export PDF
-
-</button>
-
-
-
-
-
-<button onclick="exportExcel()">
-
-📊 Export Excel
-
-</button>
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- Chart Section -->
-
-
-<section class="chart-section">
-
-
-<h2>
-📊 Complaint Analytics
-</h2>
-
-
-<canvas id="complaintChart"></canvas>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- Complaint Table -->
-
-
-<section id="complaints">
-
-
-<h2>
-Complaint List
-</h2>
-
-
-
-
-
-<table>
-
-
-
-<thead>
-
-
-<tr>
-
-
-<th>
-ID
-</th>
-
-
-<th>
-Name
-</th>
-
-
-<th>
-Issue
-</th>
-
-
-<th>
-Status
-</th>
-
-
-<th>
-Action
-</th>
-
-
-
-</tr>
-
-
-</thead>
-
-
-
-
-
-
-<tbody id="complaintTable">
-
-
-</tbody>
-
-
-
-
-</table>
-
-
-
-</section>
-
-
-
-
-
-
-
-</main>
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- Libraries -->
-
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-
-
-
-
-
-
-
-
-<script>
-
-
-function openPage(page){
-
-window.location.href=page;
-
-}
-
-
-
-
-
-function logout(){
-
-
-localStorage.removeItem("waterUser");
-
-
-window.location.href="index.html";
-
-
-}
-
-
-</script>
-
-
-
-
-
-
-
-
-<script src="js/admin.js"></script>
-
-
-<script src="js/theme.js"></script>
-
-
-<script src="js/loading.js"></script>
-
+<script
+    src="js/admin.js"
+></script>
 
 
 </body>
-
 
 </html>

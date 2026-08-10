@@ -1,284 +1,716 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WaterGuardian-X | Register Complaint</title>
 
+    <meta name="theme-color" content="#0B6EF3">
+    <meta name="description" content="Register water-related complaints with WaterGuardian-X">
 
-<title>
-WaterGuardian-X | Register Complaint
-</title>
+    <link rel="icon" href="images/logo.png">
 
+    <link rel="stylesheet" href="css/complaint.css">
 
-<link rel="icon" href="images/logo.png">
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
 
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    >
 
-<link rel="stylesheet" href="css/theme.css">
-
-<link rel="stylesheet" href="css/loading.css">
-
-<link rel="stylesheet" href="css/complaint.css">
-
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
 </head>
 
-
-
 <body>
 
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <img
+            src="images/logo.png"
+            alt="WaterGuardian-X Logo"
+            width="40"
+            height="40"
+        >
+
+        <span>💧 WaterGuardian-X</span>
+
+    </div>
+
+    <ul>
+
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="dashboard.html">📊 Dashboard</a></li>
+        <li><a href="track.html">🔎 Track</a></li>
+        <li><a href="contact.html">📞 Contact</a></li>
+
+    </ul>
+
+    <button id="themeBtn" type="button">
+        🌙
+    </button>
+
+</nav>
 
 
-<div id="loader">
+<!-- ================= HERO ================= -->
 
-<div class="loader-content">
+<header class="hero">
 
-<div class="water-drop">
-💧
+    <div class="overlay">
+
+        <h1>
+            🌍 Smart Water Complaint Management
+        </h1>
+
+        <p>
+            Government of India | WaterGuardian-X Citizen Portal
+        </p>
+
+    </div>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+
+<div class="container">
+
+    <div class="title">
+
+        <h2>
+            Register Water Complaint
+        </h2>
+
+        <p>
+            Please provide accurate information for faster complaint processing.
+        </p>
+
+    </div>
+
+
+    <!-- ================= PROGRESS ================= -->
+
+    <div class="progress-container">
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step active">
+            <span>1</span>
+            <p>Complaint</p>
+        </div>
+
+        <div class="progress-step">
+            <span>2</span>
+            <p>Location</p>
+        </div>
+
+        <div class="progress-step">
+            <span>3</span>
+            <p>Evidence</p>
+        </div>
+
+        <div class="progress-step">
+            <span>4</span>
+            <p>Submit</p>
+        </div>
+
+    </div>
+
+
+    <form id="complaintForm">
+
+        <!-- ================= CITIZEN DETAILS ================= -->
+
+        <div class="card">
+
+            <h3>👤 Citizen Details</h3>
+
+            <label for="name">
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your full name"
+                autocomplete="name"
+                required
+            >
+
+
+            <label for="mobile">
+                Mobile Number
+            </label>
+
+            <input
+                type="tel"
+                id="mobile"
+                placeholder="Enter mobile number"
+                maxlength="10"
+                autocomplete="tel"
+                required
+            >
+
+
+            <label for="email">
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter email address"
+                autocomplete="email"
+                required
+            >
+
+
+            <label for="issue">
+                Complaint Category
+            </label>
+
+            <select id="issue" required>
+
+                <option value="">
+                    Select Complaint Type
+                </option>
+
+                <option value="Water Leakage">
+                    🚰 Water Leakage
+                </option>
+
+                <option value="Pipe Burst">
+                    💥 Pipe Burst
+                </option>
+
+                <option value="Low Water Pressure">
+                    📉 Low Water Pressure
+                </option>
+
+                <option value="Water Supply Issue">
+                    🚱 Water Supply Issue
+                </option>
+
+                <option value="Drainage Overflow">
+                    🌊 Drainage Overflow
+                </option>
+
+                <option value="Water Pollution">
+                    🧪 Water Pollution
+                </option>
+
+                <option value="Other">
+                    📌 Other
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- ================= LOCATION DETAILS ================= -->
+
+        <div class="card">
+
+            <h3>📍 Location Details</h3>
+
+
+            <label for="country">
+                Country
+            </label>
+
+            <select id="country" required>
+
+                <option value="">
+                    Select Country
+                </option>
+
+            </select>
+
+
+            <label for="state">
+                State
+            </label>
+
+            <select id="state" required disabled>
+
+                <option value="">
+                    Select State
+                </option>
+
+            </select>
+
+
+            <label for="district">
+                District / City
+            </label>
+
+            <select id="district" required disabled>
+
+                <option value="">
+                    Select District
+                </option>
+
+            </select>
+
+
+            <label for="area">
+                Area / Street
+            </label>
+
+            <input
+                type="text"
+                id="area"
+                placeholder="Enter Area / Street"
+                autocomplete="street-address"
+                required
+            >
+
+
+            <label for="location">
+                Complete Address
+            </label>
+
+            <input
+                type="text"
+                id="location"
+                placeholder="Auto-filled from GPS or enter manually"
+                required
+            >
+
+
+            <!-- ================= MAP CONTROLS ================= -->
+
+            <div class="map-controls">
+
+                <button
+                    type="button"
+                    id="getLocation"
+                    class="gps-btn"
+                >
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                    Use Current Location
+                </button>
+
+
+                <input
+                    type="text"
+                    id="mapSearch"
+                    placeholder="Search any place"
+                >
+
+
+                <button
+                    type="button"
+                    class="search-btn"
+                    onclick="searchLocation()"
+                >
+                    🔍 Search
+                </button>
+
+            </div>
+
+
+            <div id="map"></div>
+
+
+            <button
+                type="button"
+                class="map-dark-btn"
+                onclick="toggleMapMode()"
+            >
+                🌙 Toggle Map
+            </button>
+
+
+            <p class="map-info">
+                📍 Click anywhere on the map to choose the complaint location.
+            </p>
+
+
+            <div class="coordinates">
+
+                <input
+                    type="text"
+                    id="latitude"
+                    placeholder="Latitude"
+                    readonly
+                >
+
+                <input
+                    type="text"
+                    id="longitude"
+                    placeholder="Longitude"
+                    readonly
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= COMPLAINT DETAILS ================= -->
+
+        <div class="card">
+
+            <h3>📝 Complaint Details</h3>
+
+            <label for="description">
+                Describe the Problem
+            </label>
+
+            <textarea
+                id="description"
+                rows="6"
+                placeholder="Explain the water problem in detail..."
+                required
+            ></textarea>
+
+        </div>
+
+
+        <!-- ================= UPLOAD EVIDENCE ================= -->
+
+        <div class="card">
+
+            <h3>📷 Upload Evidence</h3>
+
+            <p class="upload-note">
+                Upload a clear image of the water issue (JPG, PNG, JPEG).
+            </p>
+
+            <input
+                type="file"
+                id="image"
+                accept=".jpg,.jpeg,.png,image/*"
+            >
+
+            <div class="preview">
+
+                <img
+                    id="imagePreview"
+                    src=""
+                    alt="Preview"
+                    style="display:none;max-width:100%;border-radius:10px;"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= ACTION BUTTONS ================= -->
+
+        <div class="button-group">
+
+            <button
+                type="submit"
+                id="submitBtn"
+                class="submit-btn"
+            >
+                🚀 Submit Complaint
+            </button>
+
+
+            <button
+                type="button"
+                id="trackComplaint"
+                class="track-btn"
+            >
+                🔎 Track Complaint
+            </button>
+
+        </div>
+
+    </form>
+
+
+    <!-- ================= MESSAGE ================= -->
+
+    <div
+        id="message"
+        class="message"
+    ></div>
+
+
+    <!-- ================= SUCCESS MODAL ================= -->
+
+    <div
+        id="receiptModal"
+        class="modal"
+    >
+
+        <div class="modal-content">
+
+            <h2>
+                ✅ Complaint Registered Successfully
+            </h2>
+
+            <p>
+                Complaint ID
+            </p>
+
+            <h3 id="receiptId">
+                WGX-000000
+            </h3>
+
+            <p id="receiptDate"></p>
+
+            <div style="margin-top:20px;">
+
+                <button
+                    type="button"
+                    onclick="closeReceipt()"
+                >
+                    Close
+                </button>
+
+                <button
+                    type="button"
+                    onclick="window.location.href='dashboard.html'"
+                >
+                    Go to Dashboard
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 
 
-<h1>
-WaterGuardian-X
-</h1>
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <h3>💧 WaterGuardian-X</h3>
+
+        <p>
+            Smart Water Complaint Management System
+        </p>
+
+        <p>
+            Government Digital Water Initiative
+        </p>
+
+        <p>
+            © 2026 WaterGuardian-X | All Rights Reserved
+        </p>
+
+    </div>
+
+</footer>
 
 
-<p>
-Citizen Complaint Portal
-</p>
+<!-- ================= AI BUTTON ================= -->
 
-
+<div
+    id="aiButton"
+    title="Aqua AI Assistant"
+>
+    🤖
 </div>
 
-</div>
 
+<!-- ================= AI CHAT ================= -->
 
+<div id="aiChat">
 
+    <div class="ai-header">
 
+        <h3>
+            💧 Aqua AI Assistant
+        </h3>
 
+        <button
+            type="button"
+            onclick="toggleAI()"
+        >
+            ✖
+        </button>
 
+    </div>
 
-<div class="complaint-container">
 
+    <div
+        id="aiMessages"
+        class="ai-messages"
+    >
 
+        <div class="ai-message">
 
-<div class="complaint-card">
+            👋 Hello! I'm Aqua AI.
 
+            Ask me about:
 
+            <ul>
 
-<img src="images/logo.png"
-class="complaint-logo">
+                <li>💧 Water conservation</li>
+                <li>🚰 Water leakage</li>
+                <li>🌊 Water pollution</li>
+                <li>📍 Complaint registration</li>
 
+            </ul>
 
+        </div>
 
-<h1>
-💧 WaterGuardian-X
-</h1>
+    </div>
 
 
-<p>
-Register Water Related Problems
-</p>
+    <div class="ai-input">
 
+        <input
+            type="text"
+            id="aiQuestion"
+            placeholder="Ask something..."
+        >
 
+        <button
+            type="button"
+            onclick="askAI()"
+        >
+            Send
+        </button>
 
-
-
-
-<form id="complaintForm">
-
-
-
-<label>
-Citizen Name
-</label>
-
-
-<input
-
-type="text"
-
-id="name"
-
-placeholder="Enter your name"
-
-required>
-
-
-
-<label>
-Complaint Category
-</label>
-
-
-<select id="category">
-
-
-<option>
-🚰 Water Leakage
-</option>
-
-
-<option>
-💧 Water Quality Problem
-</option>
-
-
-<option>
-🚱 No Water Supply
-</option>
-
-
-<option>
-🔧 Pipeline Damage
-</option>
-
-
-<option>
-🏭 Water Pollution
-</option>
-
-
-</select>
-
-
-
-
-
-
-
-<label>
-Location
-</label>
-
-
-
-<div class="location-box">
-
-
-<input
-
-type="text"
-
-id="location"
-
-placeholder="Enter location"
-
-required>
-
-
-
-<button
-
-type="button"
-
-id="locationBtn">
-
-📍 GPS
-
-</button>
-
+    </div>
 
 </div>
 
 
+<!-- ================= SCRIPTS ================= -->
 
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
 
-
-
-
-
-
-<label>
-Upload Image
-</label>
-
-
-<input
-
-type="file"
-
-id="image"
-
-accept="image/*">
-
-
-
-
-
-
-
-<label>
-Complaint Description
-</label>
-
-
-<textarea
-
-id="description"
-
-placeholder="Explain your problem"
-
-required></textarea>
-
-
-
-
-
-
-
-<button type="submit">
-
-🚀 Submit Complaint
-
-</button>
-
-
-
-
-
-
-<p id="message"></p>
-
-
-
-
-
-<a href="dashboard.html">
-
-⬅ Back Dashboard
-
-</a>
-
-
-
-</form>
-
-
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
+</script>
 
 <script src="js/complaint.js"></script>
 
-<script src="js/theme.js"></script>
 
-<script src="js/loading.js"></script>
+<script>
 
+document
+    .getElementById("aiButton")
+    .addEventListener(
+        "click",
+        toggleAI
+    );
+
+
+function toggleAI() {
+
+    const chat =
+        document.getElementById("aiChat");
+
+    chat.style.display =
+        chat.style.display === "block"
+        ? "none"
+        : "block";
+
+}
+
+
+function askAI() {
+
+    const input =
+        document.getElementById("aiQuestion");
+
+    const messages =
+        document.getElementById("aiMessages");
+
+    const question =
+        input.value.trim();
+
+
+    if (question === "") {
+        return;
+    }
+
+
+    messages.innerHTML +=
+        "<div class='user-message'>" +
+        "<b>You:</b> " +
+        question +
+        "</div>";
+
+
+    let answer =
+        "💧 Please register your complaint with accurate location and clear photos for faster resolution.";
+
+
+    const q =
+        question.toLowerCase();
+
+
+    if (q.includes("save water")) {
+
+        answer =
+            "🚰 Turn off taps when not in use, repair leaks quickly, and reuse water whenever possible.";
+
+    }
+
+    else if (q.includes("leak")) {
+
+        answer =
+            "🔧 Select Water Leakage while registering the complaint and upload a clear image.";
+
+    }
+
+    else if (q.includes("pollution")) {
+
+        answer =
+            "🌊 Report the polluted water source with location and photos so officials can investigate.";
+
+    }
+
+    else if (q.includes("complaint")) {
+
+        answer =
+            "📋 Fill in all required details, choose the correct location, upload evidence, and submit the complaint.";
+
+    }
+
+
+    messages.innerHTML +=
+        "<div class='ai-message'>" +
+        "<b>Aqua AI:</b> " +
+        answer +
+        "</div>";
+
+
+    messages.scrollTop =
+        messages.scrollHeight;
+
+
+    input.value = "";
+
+}
+
+</script>
 
 </body>
-
 </html>
+```

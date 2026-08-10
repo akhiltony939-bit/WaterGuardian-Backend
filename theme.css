@@ -1,0 +1,353 @@
+/* ==========================================
+   WaterGuardian-X Professional Theme CSS
+========================================== */
+
+/* Smooth Transition */
+
+*{
+transition:
+background .3s,
+color .3s,
+border .3s,
+box-shadow .3s,
+transform .3s;
+}
+
+/* ---------- LIGHT MODE ---------- */
+
+body{
+
+background:#eef8ff;
+
+color:#023e8a;
+
+}
+
+/* ---------- DARK MODE ---------- */
+
+body.dark-mode{
+
+background:#061826 !important;
+
+color:#ffffff !important;
+
+}
+
+/* Cards */
+
+body.dark-mode .card,
+body.dark-mode .card-box,
+body.dark-mode .login-card,
+body.dark-mode .register-card,
+body.dark-mode .complaint-card,
+body.dark-mode .receipt-card,
+body.dark-mode .qr-card,
+body.dark-mode .chat-card,
+body.dark-mode .feature-card,
+body.dark-mode .stat-card,
+body.dark-mode .hero-card,
+body.dark-mode .step{
+
+background:rgba(255,255,255,.08);
+
+color:white;
+
+backdrop-filter:blur(15px);
+
+}
+
+/* Header */
+
+body.dark-mode header{
+
+background:rgba(8,25,40,.95);
+
+}
+
+/* Navigation */
+
+body.dark-mode nav a{
+
+color:white;
+
+}
+
+body.dark-mode nav a:hover{
+
+color:#48cae4;
+
+}
+
+/* Sections */
+
+body.dark-mode .features,
+body.dark-mode .statistics,
+body.dark-mode .timeline,
+body.dark-mode .about,
+body.dark-mode #contact{
+
+background:#061826;
+
+}
+
+/* Text */
+
+body.dark-mode p{
+
+color:#d8ecff;
+
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3{
+
+color:white;
+
+}
+
+/* Inputs */
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select{
+
+background:#102a43;
+
+color:white;
+
+border:1px solid #48cae4;
+
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder{
+
+color:#c7dfff;
+
+}
+
+/* Buttons */
+
+body.dark-mode button,
+body.dark-mode .primary-btn,
+body.dark-mode .secondary-btn,
+body.dark-mode .nav-btn{
+
+background:#0096c7;
+
+color:white;
+
+}
+
+body.dark-mode button:hover,
+body.dark-mode .primary-btn:hover{
+
+background:#00b4d8;
+
+}
+
+/* Footer */
+
+body.dark-mode footer{
+
+background:#02111b;
+
+}
+
+/* Theme Toggle Button */
+
+.theme-btn{
+
+position:fixed;
+
+right:25px;
+
+bottom:25px;
+
+width:60px;
+
+height:60px;
+
+border:none;
+
+border-radius:50%;
+
+background:#0077b6;
+
+color:white;
+
+font-size:24px;
+
+cursor:pointer;
+
+box-shadow:0 10px 25px rgba(0,0,0,.3);
+
+z-index:99999;
+
+}
+
+.theme-btn:hover{
+
+transform:scale(1.08);
+
+background:#0096c7;
+
+}
+
+/* Scrollbar */
+
+body.dark-mode::-webkit-scrollbar-thumb{
+
+background:#48cae4;
+
+}
+
+body.dark-mode::-webkit-scrollbar-track{
+
+background:#02111b;
+
+}
+/* ==========================================
+   WaterGuardian-X Dark Mode Upgrade
+   Admin + Dashboard Support
+========================================== */
+
+
+/* Admin Dashboard */
+
+body.dark-mode .sidebar{
+
+    background:
+    linear-gradient(
+        180deg,
+        #001d33,
+        #003f5c
+    );
+
+}
+
+
+body.dark-mode .content{
+
+    background:#061826;
+
+}
+
+
+body.dark-mode .admin-date{
+
+    background:#102a43;
+
+    color:#48cae4;
+
+}
+
+
+
+body.dark-mode .analytics-card{
+
+    background:#102a43;
+
+    color:white;
+
+}
+
+
+
+body.dark-mode #complaints{
+
+    background:#102a43;
+
+}
+
+
+
+body.dark-mode table{
+
+    color:white;
+
+}
+
+
+
+body.dark-mode tbody td{
+
+    color:#e6f7ff;
+
+    border-color:#234;
+
+}
+
+
+
+body.dark-mode tbody tr:hover{
+
+    background:#17344d;
+
+}
+
+
+
+/* Dashboard Cards */
+
+body.dark-mode .stat-card{
+
+    background:#102a43;
+
+    color:white;
+
+}
+
+
+
+/* Map */
+
+body.dark-mode .map-card{
+
+    background:#102a43;
+
+    color:white;
+
+}
+
+
+
+/* Receipt */
+
+body.dark-mode .receipt-details{
+
+    color:white;
+
+}
+
+
+
+/* Links */
+
+body.dark-mode a{
+
+    color:#48cae4;
+
+}
+
+
+
+/* Smooth Theme Change */
+
+body{
+
+    transition:
+    background .5s ease,
+    color .5s ease;
+
+}
+
+
+/* Theme Button Animation */
+
+.theme-btn:active{
+
+    transform:scale(.9);
+
+}

@@ -1,31 +1,37 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
+    <title>WaterGuardian-X</title>
 
-<title>
-WaterGuardian-X | Smart Water Management System
-</title>
+    <meta name="description"
+          content="WaterGuardian-X - Smart Water Complaint Management System addressing Water Crisis through empathy, technology and community participation.">
 
+    <!-- Existing CSS -->
+    <link rel="stylesheet" href="./style.css">
 
-<meta name="description"
-content="WaterGuardian-X Smart Water Management System for reporting and monitoring water complaints.">
+    <!-- ================= PWA ================= -->
 
+    <link rel="manifest" href="/manifest.json">
 
-<link rel="icon" href="images/logo.png">
+    <meta name="theme-color" content="#0077b6">
 
+    <meta name="mobile-web-app-capable" content="yes">
 
-<link rel="stylesheet" href="css/theme.css">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
-<link rel="stylesheet" href="css/loading.css">
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="default">
 
-<link rel="stylesheet" href="css/style.css">
-
+    <meta name="apple-mobile-web-app-title"
+          content="WaterGuardian-X">
 
 </head>
 
@@ -33,629 +39,1525 @@ content="WaterGuardian-X Smart Water Management System for reporting and monitor
 <body>
 
 
-<!-- Loader -->
+<!-- =====================================================
+     NAVBAR
+     ===================================================== -->
 
-<div id="loader">
+<header class="navbar">
 
-<div class="loader-content">
+    <div class="nav-container">
 
-<div class="water-drop">
-💧
-</div>
+        <a href="index.html" class="logo">
 
-<h1>
-WaterGuardian-X
-</h1>
+            <span class="logo-icon">💧</span>
 
-<p>
-Smart Water Management System
-</p>
+            <span>
+                <strong>WaterGuardian-X</strong>
+                <small>Water Crisis on Empathy Walk</small>
+            </span>
 
-</div>
-
-</div>
+        </a>
 
 
+        <nav class="nav-links">
+
+            <a href="#home">Home</a>
+
+            <a href="#crisis">The Crisis</a>
+
+            <a href="#approach">Our Approach</a>
+
+            <a href="#features">Features</a>
+
+            <a href="#impact">Impact</a>
+
+            <a href="#contact">Contact</a>
+
+        </nav>
 
 
+        <div class="nav-buttons">
 
-<!-- Header -->
+            <a href="login.html"
+               class="login-btn">
+                Login
+            </a>
 
+            <a href="register.html"
+               class="register-btn">
+                Register
+            </a>
 
-<header>
+        </div>
 
-
-<div class="logo">
-
-
-<img src="images/logo.png">
-
-
-<span>
-WaterGuardian-X
-</span>
-
-
-</div>
-
-
-
-
-
-<nav>
-
-
-<a href="index.html">
-Home
-</a>
-
-
-<a href="#about">
-About
-</a>
-
-
-<a href="#features">
-Features
-</a>
-
-
-<a href="#contact">
-Contact
-</a>
-
-
-<a href="login.html">
-Login
-</a>
-
-
-<a href="register.html"
-class="nav-btn">
-
-Register
-
-</a>
-
-
-</nav>
-
+    </div>
 
 </header>
 
 
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+
+<section id="home" class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-container">
+
+        <div class="hero-content">
+
+            <div class="theme-badge">
+                🌍 WATER CRISIS ON EMPATHY WALK
+            </div>
 
 
+            <h1>
+
+                Walk in Their Shoes.
+
+                <span>
+                    Understand the Water Crisis.
+                </span>
+
+            </h1>
 
 
+            <p class="hero-text">
+
+                Water problems affect real people and communities every day.
+
+                WaterGuardian-X transforms empathy into action by providing
+                a smart digital platform to report, track and manage
+                water-related problems.
+
+            </p>
 
 
+            <div class="hero-buttons">
 
-<!-- Hero Section -->
+                <a href="complaint.html"
+                   class="primary-btn">
 
+                    🚰 Report Water Problem
 
-<section class="hero">
-
-
-<div class="hero-content">
-
-
-<h1>
-
-Smart Solution For
-
-<br>
-
-<span>
-Water Crisis Management
-</span>
-
-</h1>
+                </a>
 
 
+                <a href="login.html"
+                   class="secondary-btn">
+
+                    👤 Citizen Login
+
+                </a>
+
+            </div>
 
 
-<p>
+            <div class="hero-stats">
 
-A digital platform that helps citizens
-report water problems, track complaints,
-and support efficient water conservation.
+                <div>
 
-</p>
+                    <strong>💧</strong>
 
+                    <span>
+                        Protect Water
+                    </span>
 
-
-
-
-
-<div class="hero-buttons">
+                </div>
 
 
-<a href="register.html"
-class="primary-btn">
+                <div>
 
-🚰 Report Complaint
+                    <strong>🤝</strong>
 
-</a>
+                    <span>
+                        Help Communities
+                    </span>
 
-
-
-
-<a href="login.html"
-class="secondary-btn">
-
-Citizen Login
-
-</a>
+                </div>
 
 
+                <div>
 
-</div>
+                    <strong>🌱</strong>
 
+                    <span>
+                        Create Impact
+                    </span>
 
-</div>
+                </div>
 
+            </div>
 
-
-
-
-
-<div class="hero-image">
-
-
-<div class="water-circle">
-
-💧
-
-</div>
+        </div>
 
 
-</div>
+        <div class="hero-card">
 
+            <div class="water-drop">
+                💧
+            </div>
 
+            <h3>
+                Every Drop Matters
+            </h3>
+
+            <p>
+
+                Every water complaint represents a real problem
+                experienced by someone in the community.
+
+            </p>
+
+            <div class="hero-card-line"></div>
+
+            <strong>
+                Empathy → Awareness → Action
+            </strong>
+
+        </div>
+
+    </div>
 
 </section>
 
 
+<!-- =====================================================
+     CRISIS
+     ===================================================== -->
+
+<section id="crisis"
+         class="section crisis-section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            UNDERSTANDING THE PROBLEM
+        </span>
+
+        <h2>
+            The Water Crisis We See
+        </h2>
+
+        <p>
+
+            Water crisis is not only an environmental problem.
+            It can directly affect families, students, workers
+            and entire communities.
+
+        </p>
+
+    </div>
 
 
+    <div class="crisis-grid">
 
 
+        <div class="info-card">
+
+            <div class="card-icon">
+                🚰
+            </div>
+
+            <h3>
+                Water Leakage
+            </h3>
+
+            <p>
+
+                Unreported leaks can waste valuable water and
+                damage public infrastructure.
+
+            </p>
+
+        </div>
 
 
+        <div class="info-card">
 
-<!-- Features -->
+            <div class="card-icon">
+                💧
+            </div>
 
+            <h3>
+                Supply Problems
+            </h3>
+
+            <p>
+
+                Irregular or insufficient water supply can
+                affect everyday life and community well-being.
+
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="card-icon">
+                🧪
+            </div>
+
+            <h3>
+                Water Quality
+            </h3>
+
+            <p>
+
+                Citizens need an easy way to communicate
+                concerns about water quality.
+
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="card-icon">
+                ⏳
+            </div>
+
+            <h3>
+                Delayed Resolution
+            </h3>
+
+            <p>
+
+                Without proper complaint tracking,
+                important issues may remain unresolved.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     EMPATHY APPROACH
+     ===================================================== -->
+
+<section id="approach"
+         class="section approach-section">
+
+    <div class="approach-container">
+
+
+        <div class="approach-text">
+
+            <span class="section-label">
+                OUR EMPATHY APPROACH
+            </span>
+
+            <h2>
+                Listen. Understand. Act.
+            </h2>
+
+            <p>
+
+                The theme
+                <strong>
+                    Water Crisis on Empathy Walk
+                </strong>
+                encourages us to understand water-related problems
+                from the perspective of the people experiencing them.
+
+            </p>
+
+
+            <p>
+
+                WaterGuardian-X converts that understanding into
+                a practical digital solution that connects citizens
+                and authorities.
+
+            </p>
+
+
+            <div class="empathy-flow">
+
+
+                <div class="flow-item">
+
+                    <span>
+                        👂
+                    </span>
+
+                    <strong>
+                        Listen
+                    </strong>
+
+                    <small>
+                        Understand people's problems
+                    </small>
+
+                </div>
+
+
+                <div class="flow-arrow">
+                    →
+                </div>
+
+
+                <div class="flow-item">
+
+                    <span>
+                        ❤️
+                    </span>
+
+                    <strong>
+                        Empathize
+                    </strong>
+
+                    <small>
+                        Understand their experience
+                    </small>
+
+                </div>
+
+
+                <div class="flow-arrow">
+                    →
+                </div>
+
+
+                <div class="flow-item">
+
+                    <span>
+                        📋
+                    </span>
+
+                    <strong>
+                        Report
+                    </strong>
+
+                    <small>
+                        Give the problem a voice
+                    </small>
+
+                </div>
+
+
+                <div class="flow-arrow">
+                    →
+                </div>
+
+
+                <div class="flow-item">
+
+                    <span>
+                        ⚡
+                    </span>
+
+                    <strong>
+                        Act
+                    </strong>
+
+                    <small>
+                        Support faster resolution
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="empathy-card">
+
+            <div class="big-drop">
+                💧
+            </div>
+
+            <h3>
+
+                From Empathy<br>
+                to Action
+
+            </h3>
+
+
+            <p>
+
+                Technology can help communities communicate
+                water problems and support authorities in
+                responding effectively.
+
+            </p>
+
+
+            <a href="complaint.html"
+               class="card-button">
+
+                Report a Problem →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+     ===================================================== -->
+
+<section class="section about-section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            OUR SOLUTION
+        </span>
+
+        <h2>
+            What is WaterGuardian-X?
+        </h2>
+
+        <p>
+
+            A smart water complaint management system designed
+            to connect citizens and authorities through technology.
+
+        </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+
+        <div class="about-box">
+
+            <div>
+                🎯
+            </div>
+
+            <h3>
+                Objective
+            </h3>
+
+            <p>
+
+                Reduce water wastage and support faster
+                complaint reporting and resolution.
+
+            </p>
+
+        </div>
+
+
+        <div class="about-box">
+
+            <div>
+                💡
+            </div>
+
+            <h3>
+                Solution
+            </h3>
+
+            <p>
+
+                Provide a centralized digital platform
+                for citizens and administrators.
+
+            </p>
+
+        </div>
+
+
+        <div class="about-box">
+
+            <div>
+                🌍
+            </div>
+
+            <h3>
+                Impact
+            </h3>
+
+            <p>
+
+                Promote awareness, responsible water usage
+                and community participation.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FEATURES
+     ===================================================== -->
 
 <section id="features"
-class="features">
+         class="section features-section">
 
+    <div class="section-heading">
 
-<h2>
-Smart Features
-</h2>
+        <span class="section-label">
+            SMART TECHNOLOGY
+        </span>
 
+        <h2>
+            WaterGuardian-X Features
+        </h2>
 
+        <p>
 
+            Technology-driven features designed to make
+            water complaint management easier and smarter.
 
-<div class="feature-container">
+        </p>
 
+    </div>
 
 
-<div class="card">
+    <div class="features-grid">
 
 
-<h3>
-🚰 Complaint System
-</h3>
+        <div class="feature-card">
 
+            <div class="feature-icon">
+                🚰
+            </div>
 
-<p>
+            <h3>
+                Complaint System
+            </h3>
 
-Register water leakage,
-supply and quality issues.
+            <p>
 
-</p>
+                Report water leakage, supply problems,
+                water quality issues and other complaints.
 
+            </p>
 
-</div>
+            <a href="complaint.html">
+                Report Issue →
+            </a>
 
+        </div>
 
 
+        <div class="feature-card">
 
+            <div class="feature-icon">
+                🗺️
+            </div>
 
+            <h3>
+                Smart Water Map
+            </h3>
 
-<div class="card">
+            <p>
 
+                View complaint locations using GPS and
+                location-based technology.
 
-<h3>
-🗺️ Smart Water Map
-</h3>
+            </p>
 
+            <a href="login.html">
+                Explore →
+            </a>
 
-<p>
+        </div>
 
-View complaint locations
-using GPS technology.
 
-</p>
+        <div class="feature-card">
 
+            <div class="feature-icon">
+                🤖
+            </div>
 
-</div>
+            <h3>
+                Aqua AI Assistant
+            </h3>
 
+            <p>
 
+                Get instant guidance and useful information
+                related to water problems.
 
+            </p>
 
+            <a href="login.html">
+                Get Help →
+            </a>
 
+        </div>
 
-<div class="card">
 
+        <div class="feature-card">
 
-<h3>
-🤖 Aqua AI Assistant
-</h3>
+            <div class="feature-icon">
+                📊
+            </div>
 
+            <h3>
+                Admin Dashboard
+            </h3>
 
-<p>
+            <p>
 
-Get instant guidance
-for water problems.
+                Monitor complaints, update status,
+                analyze data and manage reports.
 
-</p>
+            </p>
 
+            <a href="login.html">
+                Admin Login →
+            </a>
 
-</div>
+        </div>
 
 
+        <div class="feature-card">
 
+            <div class="feature-icon">
+                📍
+            </div>
 
+            <h3>
+                Location Reporting
+            </h3>
 
+            <p>
 
+                Provide the location of water problems
+                to help authorities identify affected areas.
 
-<div class="card">
+            </p>
 
+        </div>
 
-<h3>
-📊 Admin Dashboard
-</h3>
 
+        <div class="feature-card">
 
-<p>
+            <div class="feature-icon">
+                📈
+            </div>
 
-Monitor complaints,
-analytics and reports.
+            <h3>
+                Analytics & Reports
+            </h3>
 
-</p>
+            <p>
 
+                Analyze complaint information and identify
+                recurring water-related problems.
 
-</div>
+            </p>
 
+        </div>
 
-
-
-</div>
-
-
+    </div>
 
 </section>
 
 
+<!-- =====================================================
+     HOW IT WORKS
+     ===================================================== -->
 
+<section class="section how-section">
 
+    <div class="section-heading">
 
+        <span class="section-label">
+            SIMPLE PROCESS
+        </span>
 
+        <h2>
+            How WaterGuardian-X Works
+        </h2>
 
+    </div>
 
 
-<!-- About -->
+    <div class="steps-container">
 
 
-<section id="about"
-class="about">
+        <div class="step">
 
+            <div class="step-number">
+                01
+            </div>
 
-<h2>
-About WaterGuardian-X
-</h2>
+            <div>
 
+                <h3>
+                    Experience
+                </h3>
 
+                <p>
+                    A citizen encounters a water-related problem.
+                </p>
 
-<p>
+            </div>
 
+        </div>
 
-WaterGuardian-X is a Smart Water Management System
-designed to connect citizens and authorities through
-a digital complaint management platform.
 
-It helps in reporting water issues, tracking solutions,
-and improving water conservation using technology.
+        <div class="step">
 
+            <div class="step-number">
+                02
+            </div>
 
-</p>
+            <div>
 
+                <h3>
+                    Report
+                </h3>
 
+                <p>
+                    The citizen submits the problem through the platform.
+                </p>
 
+            </div>
 
+        </div>
 
 
+        <div class="step">
 
-<div class="about-cards">
+            <div class="step-number">
+                03
+            </div>
 
+            <div>
 
+                <h3>
+                    Locate
+                </h3>
 
-<div class="card">
+                <p>
+                    Location information helps identify the affected area.
+                </p>
 
+            </div>
 
-<h3>
-🎯 Objective
-</h3>
+        </div>
 
 
-<p>
+        <div class="step">
 
-Reduce water wastage and provide
-faster complaint resolution.
+            <div class="step-number">
+                04
+            </div>
 
-</p>
+            <div>
 
+                <h3>
+                    Analyze
+                </h3>
 
-</div>
+                <p>
+                    Authorities monitor complaints through the dashboard.
+                </p>
 
+            </div>
 
+        </div>
 
 
+        <div class="step">
 
+            <div class="step-number">
+                05
+            </div>
 
-<div class="card">
+            <div>
 
+                <h3>
+                    Resolve
+                </h3>
 
-<h3>
-💡 Solution
-</h3>
+                <p>
+                    Complaints are processed and their status is updated.
+                </p>
 
+            </div>
 
-<p>
+        </div>
 
-A centralized portal for citizens
-and administrators.
 
-</p>
+        <div class="step">
 
+            <div class="step-number">
+                06
+            </div>
 
-</div>
+            <div>
 
+                <h3>
+                    Improve
+                </h3>
 
+                <p>
+                    Data helps identify recurring problems and improve services.
+                </p>
 
+            </div>
 
+        </div>
 
-
-<div class="card">
-
-
-<h3>
-🌍 Impact
-</h3>
-
-
-<p>
-
-Promotes awareness and
-responsible water usage.
-
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
+    </div>
 
 </section>
 
 
+<!-- =====================================================
+     IMPACT
+     ===================================================== -->
+
+<section id="impact"
+         class="impact-section">
+
+    <div class="impact-container">
 
 
+        <div class="impact-content">
+
+            <span class="section-label light">
+                COMMUNITY IMPACT
+            </span>
+
+            <h2>
+                Every Complaint Represents a Real Person
+            </h2>
+
+            <p>
+
+                Water problems affect people's daily lives.
+                By giving citizens a digital voice, WaterGuardian-X
+                helps transform individual experiences into
+                actionable information.
+
+            </p>
 
 
+            <div class="impact-points">
 
 
+                <div>
 
-<!-- Technology -->
+                    <span>
+                        ✓
+                    </span>
 
+                    <p>
+                        Encourages community participation
+                    </p>
 
-<section class="technology">
-
-
-<h2>
-Technology Used
-</h2>
-
-
-
-
-<div class="tech-grid">
+                </div>
 
 
-<div>
-🌐
-<br>
-HTML5
-</div>
+                <div>
+
+                    <span>
+                        ✓
+                    </span>
+
+                    <p>
+                        Promotes responsible water usage
+                    </p>
+
+                </div>
 
 
-<div>
-🎨
-<br>
-CSS3
-</div>
+                <div>
+
+                    <span>
+                        ✓
+                    </span>
+
+                    <p>
+                        Improves communication with authorities
+                    </p>
+
+                </div>
 
 
-<div>
-⚡
-<br>
-JavaScript
-</div>
+                <div>
+
+                    <span>
+                        ✓
+                    </span>
+
+                    <p>
+                        Supports better complaint management
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
 
 
-<div>
-🟢
-<br>
-Node.js
-</div>
+        <div class="impact-quote">
 
+            <div class="quote-icon">
+                💧
+            </div>
 
-<div>
-🍃
-<br>
-MongoDB
-</div>
+            <h3>
 
+                "Empathy creates understanding.
+                Technology creates action."
 
-<div>
-🤖
-<br>
-AI Assistant
-</div>
+            </h3>
 
+            <p>
+                Together, we can protect every drop.
+            </p>
 
+        </div>
 
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- Future Scope -->
-
-
-<section class="future">
-
-
-<h2>
-Future Enhancements
-</h2>
-
-
-
-<ul>
-
-
-<li>
-📱 Mobile Application
-</li>
-
-
-<li>
-🛰️ IoT Water Sensors
-</li>
-
-
-<li>
-🗺️ Real-Time Water Monitoring
-</li>
-
-
-<li>
-🤖 Advanced AI Prediction
-</li>
-
-
-<li>
-☁️ Cloud Deployment
-</li>
-
-
-</ul>
-
-
+    </div>
 
 </section>
 
 
+<!-- =====================================================
+     TECHNOLOGY
+     ===================================================== -->
+
+<section class="section technology-section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            TECHNOLOGY
+        </span>
+
+        <h2>
+            Technology Used
+        </h2>
+
+    </div>
 
 
+    <div class="tech-grid">
 
 
+        <div class="tech-card">
+
+            <span>
+                🌐
+            </span>
+
+            <h3>
+                HTML5
+            </h3>
+
+            <p>
+                Frontend structure
+            </p>
+
+        </div>
 
 
+        <div class="tech-card">
 
-<!-- Contact -->
+            <span>
+                🎨
+            </span>
 
+            <h3>
+                CSS3
+            </h3>
 
-<section id="contact">
+            <p>
+                Modern responsive design
+            </p>
 
-
-<h2>
-Contact WaterGuardian-X
-</h2>
-
-
-<p>
-
-For support and queries:
-
-</p>
+        </div>
 
 
-<p>
+        <div class="tech-card">
 
-📧 support@waterguardianx.com
+            <span>
+                ⚡
+            </span>
 
-</p>
+            <h3>
+                JavaScript
+            </h3>
+
+            <p>
+                Interactive functionality
+            </p>
+
+        </div>
 
 
+        <div class="tech-card">
+
+            <span>
+                🟢
+            </span>
+
+            <h3>
+                Node.js
+            </h3>
+
+            <p>
+                Backend services
+            </p>
+
+        </div>
+
+
+        <div class="tech-card">
+
+            <span>
+                🍃
+            </span>
+
+            <h3>
+                MongoDB
+            </h3>
+
+            <p>
+                Database management
+            </p>
+
+        </div>
+
+
+        <div class="tech-card">
+
+            <span>
+                🤖
+            </span>
+
+            <h3>
+                AI Assistant
+            </h3>
+
+            <p>
+                Smart guidance
+            </p>
+
+        </div>
+
+
+        <div class="tech-card">
+
+            <span>
+                🗺️
+            </span>
+
+            <h3>
+                Maps / GPS
+            </h3>
+
+            <p>
+                Location-based reporting
+            </p>
+
+        </div>
+
+    </div>
 
 </section>
 
 
+<!-- =====================================================
+     FUTURE
+     ===================================================== -->
+
+<section class="section future-section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            🌱 OUR VISION FOR THE FUTURE
+        </span>
+
+        <h2>
+            Building a Smarter Water Future
+        </h2>
+
+        <p>
+
+            From understanding today's water crisis to creating
+            a smarter, more sustainable and community-focused tomorrow.
+
+        </p>
+
+    </div>
 
 
+    <div class="future-grid">
 
 
+        <div class="future-card">
+
+            <div class="future-icon">
+                📱
+            </div>
+
+            <h3>
+                Mobile Application
+            </h3>
+
+            <p>
+
+                Easy water complaint reporting and tracking
+                directly from smartphones.
+
+            </p>
+
+            <span class="future-status">
+                Future Enhancement
+            </span>
+
+        </div>
 
 
+        <div class="future-card">
 
-<!-- Footer -->
+            <div class="future-icon">
+                🛰️
+            </div>
 
+            <h3>
+                IoT Water Sensors
+            </h3>
+
+            <p>
+
+                Smart sensors can help detect water leakage,
+                wastage and infrastructure problems automatically.
+
+            </p>
+
+            <span class="future-status">
+                Future Enhancement
+            </span>
+
+        </div>
+
+
+        <div class="future-card">
+
+            <div class="future-icon">
+                🗺️
+            </div>
+
+            <h3>
+                Real-Time Monitoring
+            </h3>
+
+            <p>
+
+                Provide real-time information about reported
+                water problems and affected locations.
+
+            </p>
+
+            <span class="future-status">
+                Future Enhancement
+            </span>
+
+        </div>
+
+
+        <div class="future-card">
+
+            <div class="future-icon">
+                🤖
+            </div>
+
+            <h3>
+                Advanced AI Prediction
+            </h3>
+
+            <p>
+
+                AI can analyze complaint patterns and help
+                identify recurring water-related problems.
+
+            </p>
+
+            <span class="future-status">
+                Future Enhancement
+            </span>
+
+        </div>
+
+
+        <div class="future-card">
+
+            <div class="future-icon">
+                ☁️
+            </div>
+
+            <h3>
+                Cloud Infrastructure
+            </h3>
+
+            <p>
+
+                Scalable cloud services can improve system
+                availability, performance and accessibility.
+
+            </p>
+
+            <span class="future-status">
+                Future Enhancement
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="future-message">
+
+        <div class="future-message-icon">
+            💧
+        </div>
+
+        <div>
+
+            <h3>
+                From Empathy to Innovation
+            </h3>
+
+            <p>
+
+                Our goal is to continuously improve WaterGuardian-X
+                so that communities can identify water problems
+                earlier, communicate effectively and support
+                sustainable water management.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+     ===================================================== -->
+
+<section class="cta-section">
+
+    <div>
+
+        <h2>
+            Have You Experienced a Water Problem?
+        </h2>
+
+        <p>
+
+            Your experience matters. Report it and help
+            your community take action.
+
+        </p>
+
+        <a href="complaint.html"
+           class="cta-button">
+
+            🚰 Report Water Problem
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+     ===================================================== -->
+
+<section id="contact"
+         class="contact-section">
+
+    <div class="contact-container">
+
+
+        <div>
+
+            <span class="section-label">
+                GET IN TOUCH
+            </span>
+
+            <h2>
+                Contact WaterGuardian-X
+            </h2>
+
+            <p>
+
+                For support, queries and information about
+                the WaterGuardian-X project.
+
+            </p>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <span>
+                📧
+            </span>
+
+            <div>
+
+                <small>
+                    Email
+                </small>
+
+                <a href="mailto:support@waterguardianx.com">
+
+                    support@waterguardianx.com
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
 
 <footer>
 
+    <div class="footer-container">
 
-<p>
 
-© 2026 WaterGuardian-X |
+        <div class="footer-brand">
 
-Smart Water Management System
+            <h3>
+                💧 WaterGuardian-X
+            </h3>
 
-</p>
+            <p>
+                Smart Water Complaint Management System
+            </p>
 
+        </div>
+
+
+        <div class="footer-theme">
+
+            <strong>
+                Water Crisis on Empathy Walk
+            </strong>
+
+            <span>
+                Understanding the crisis. Empowering communities.
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 WaterGuardian-X. All Rights Reserved.
+        </p>
+
+        <p>
+            Built for a smarter and more responsible water future.
+        </p>
+
+    </div>
 
 </footer>
 
 
+<!-- =====================================================
+     DARK MODE BUTTON
+     ===================================================== -->
+
+<button class="theme-toggle"
+        onclick="document.body.classList.toggle('dark-mode')"
+        title="Toggle Dark Mode">
+
+    🌙
+
+</button>
 
 
+<!-- =====================================================
+     WATERGUARDIAN-X PWA SERVICE WORKER
+     ===================================================== -->
 
+<script>
 
+    if ("serviceWorker" in navigator) {
 
+        window.addEventListener("load", function () {
 
-<script src="js/theme.js"></script>
+            navigator.serviceWorker
+                .register("./sw.js")
 
-<script src="js/loading.js"></script>
+                .then(function (registration) {
 
+                    console.log(
+                        "✅ WaterGuardian-X Service Worker registered successfully!"
+                    );
+
+                    console.log(
+                        "📱 Service Worker scope:",
+                        registration.scope
+                    );
+
+                })
+
+                .catch(function (error) {
+
+                    console.error(
+                        "❌ WaterGuardian-X Service Worker registration failed:",
+                        error
+                    );
+
+                });
+
+        });
+
+    } else {
+
+        console.log(
+            "⚠️ Service Workers are not supported in this browser."
+        );
+
+    }
+
+</script>
 
 
 </body>
-
 </html>

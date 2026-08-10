@@ -1,0 +1,22 @@
+{
+  "name": "WaterGuardian-X",
+  "short_name": "WaterGuardian",
+  "description": "Smart Water Crisis Complaint and Monitoring System",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4fbff",
+  "theme_color": "#0077b6",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "assets/water-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/water-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
