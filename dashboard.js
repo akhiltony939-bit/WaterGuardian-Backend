@@ -10,11 +10,10 @@
 // ======================================
 
 const API_URL =
-    "http://localhost:5000/api/complaints";
+    "https://waterguardian-backend.onrender.com/api/complaints";
 
 const SENSOR_API_URL =
-    "http://localhost:5000/api/sensors";
-
+    "https://waterguardian-backend.onrender.com/api/sensors";
 
 // ======================================
 // CHECK LOGIN
@@ -215,14 +214,13 @@ function displayComplaints(
                         "-"
                     }
                 </td>
-
-                <td>
-                    ${
-                        complaint.area ||
-                        complaint.location ||
-                        "-"
-                    }
-                </td>
+<td>
+    ${
+        complaint.area ||
+        complaint.location ||
+        "-"
+    }
+</td>
 
                 <td>
                     ${
