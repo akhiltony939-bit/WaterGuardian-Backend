@@ -15,6 +15,10 @@ const API_URL =
 const SENSOR_API_URL =
     "https://waterguardian-backend.onrender.com/api/sensors";
 
+const BACKEND_URL =
+    "https://waterguardian-backend.onrender.com";
+
+
 // ======================================
 // CHECK LOGIN
 // ======================================
@@ -200,9 +204,11 @@ function displayComplaints(
                 );
 
             row.innerHTML = `
+
                 <td>
                     ${
                         complaint.id ||
+                        complaint.complaintId ||
                         complaint._id ||
                         "-"
                     }
@@ -214,13 +220,13 @@ function displayComplaints(
                         "-"
                     }
                 </td>
-<td>
-    ${
-        complaint.area ||
-        complaint.location ||
-        "-"
-    }
-</td>
+
+                <td>
+                    ${
+                        complaint.location ||
+                        "-"
+                    }
+                </td>
 
                 <td>
                     ${
@@ -242,11 +248,10 @@ function displayComplaints(
                 <td>
                     <button
                         onclick="downloadReceipt('${complaint._id}')">
-
                         🧾 Receipt
-
                     </button>
                 </td>
+
             `;
 
             table.appendChild(row);
@@ -333,7 +338,7 @@ function downloadReceipt(
 ) {
 
     window.open(
-        `http://localhost:5000/api/receipt/${id}`,
+        `${BACKEND_URL}/api/receipt/${id}`,
         "_blank"
     );
 }
